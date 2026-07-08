@@ -1,0 +1,25 @@
+# Requirements for the GRU Log Anomaly Detection pipeline.
+# Pinned to >= the versions the project was developed against (Python 3.9.6).
+#
+# These are the packages actually imported by the codebase. The regression
+# tests (tests/) use only the standard library — no extra test runner needed.
+
+# Core ML / data
+torch>=2.8.0
+numpy>=2.0.0
+pandas>=2.0.0
+scikit-learn>=1.5.0
+# scipy is imported directly (run_bgl_evaluation.py: ks_2samp); pinned explicitly
+# even though scikit-learn already pulls it in transitively.
+scipy>=1.10
+
+# BGL raw-log parsing only (bgl_preprocess.py uses Drain3 template mining).
+# Not needed for the HDFS headline path.
+drain3>=0.9.11
+
+# Plotting — research-fair comparison/attention figures (compare/analyze scripts)
+matplotlib>=3.7.0
+
+# LLM explanation layer (optional — the pipeline degrades gracefully if absent).
+# Requires a local Ollama server with the llama3.2:1b model pulled.
+ollama>=0.4.0
