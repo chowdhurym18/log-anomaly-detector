@@ -1,16 +1,23 @@
-## HDFS_v1
-HDFS (http://hadoop.apache.org/hdfs) is the Hadoop Distributed File System designed to run on commodity hardware. Due to the popularity of HDFS, it has been widely studied in the literature. 
+# docs/ — index
 
-This log set is generated in a private cloud environment using benchmark workloads, and manually labeled through handcrafted rules to identify the anomalies. The logs are sliced into traces according to block ids. Then each trace associated with a specific block id is assigned a groundtruth label: normal/anomaly. 
+Read in this order.
 
-We have preprocessed the dataset for easy use in research, including:
-+ HDFS.log_templates.csv
-+ anomaly_label.csv
-+ Event_traces.csv
-+ Event_occurrence_matrix.csv
-+ HDFS.npz
+| Doc | What it is |
+|---|---|
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Module map, data flow, and the **canonical terminology** (Confidence / Anomaly / Detection score, the three bands). Start here. |
+| [RESEARCH_POSITIONING.md](RESEARCH_POSITIONING.md) | Honest positioning vs DeepLog / LogAnomaly / LogBERT / LogGPT, including the BGL chronological-split caveat. |
+| [ROADMAP.md](ROADMAP.md) | Future work, ranked by evidence (what was tried, what worked, what failed). |
+| [RESEARCH_AUDIT.md](RESEARCH_AUDIT.md) | The original (June) audit that motivated normal-only training — historical origin. |
+| [POSTER.md](POSTER.md) | Research-fair poster copy. |
 
-### Citation
-If you use the HDFS_v1 dataset from loghub in your research, please cite the following papers.
-+ Wei Xu, Ling Huang, Armando Fox, David Patterson, Michael Jordan. [Detecting Large-Scale System Problems by Mining Console Logs](https://people.eecs.berkeley.edu/~jordan/papers/xu-etal-sosp09.pdf), in Proc. of the 22nd ACM Symposium on Operating Systems Principles (SOSP), 2009.
-+ Jieming Zhu, Shilin He, Pinjia He, Jinyang Liu, Michael R. Lyu. [Loghub: A Large Collection of System Log Datasets for AI-driven Log Analytics](https://arxiv.org/abs/2008.06448). IEEE International Symposium on Software Reliability Engineering (ISSRE), 2023.
+## Where the results live
+
+The measured results are in [`../outputs/`](../outputs/), not in `docs/`:
+
+- **Start:** [`../outputs/final_summary.md`](../outputs/final_summary.md) — the capstone.
+- **Reviewing the code?** [`../outputs/final_project_audit.md`](../outputs/final_project_audit.md).
+- **Detection numbers:** `detection_report.md` (HDFS), `bgl_results.md` + `bgl_vs_hdfs.md` (BGL).
+- **What moved where:** [`../PROJECT_CLEANUP.md`](../PROJECT_CLEANUP.md).
+
+Overlapping older presentation docs were consolidated into the `outputs/final_*` files above and
+moved to `archive/docs/` — see PROJECT_CLEANUP.md.
