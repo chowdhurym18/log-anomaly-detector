@@ -4,28 +4,28 @@ _The system learns NORMAL behaviour, measures how SURPRISING each block of activ
 
 ## What the system decided
 
-It reviewed **115,013** blocks of activity (a *block* is one HDFS operation's full event sequence). Of those:
+It reviewed **9,427** blocks of activity (a *block* is a fixed 100-line window of consecutive BGL log lines). Of those:
 
 | Band | What it means | Blocks | Share | Actually anomalous |
 |---|---|---|---|---|
-| ✅ Normal | low surprise — consistent with normal behaviour. | 111,274 | 96.7% | 1.0% |
-| ❓ Uncertain | moderate surprise — routed for additional review. | 1,297 | 1.1% | 25.3% |
-| ⚠  Suspicious | high surprise — flagged as SUSPICIOUS for investigation. | 2,442 | 2.1% | 80.2% |
+| ✅ Normal | low surprise — consistent with normal behaviour. | 8,425 | 89.4% | 1.1% |
+| ❓ Uncertain | moderate surprise — routed for additional review. | 157 | 1.7% | 28.7% |
+| ⚠  Suspicious | high surprise — flagged as SUSPICIOUS for investigation. | 845 | 9.0% | 98.2% |
 
 _'Actually anomalous' uses the ground-truth labels only to grade the system — the detector itself never sees them. A good detector keeps the Normal band near 0% and concentrates the true anomalies in the Suspicious band._
 
 ## How well it detects (held-out test, graded against ground truth)
 
-- Suspicious-activity **F1: 67.4%**  (Precision 80.2% · Recall 58.1%)
-- Ranking quality — **PR-AUC 0.692** (anomalies are only 2.9% of blocks, so this is the metric that matters) · AUROC 0.892
+- Suspicious-activity **F1: 91.7%**  (Precision 98.2% · Recall 86.0%)
+- Ranking quality — **PR-AUC 0.950** (anomalies are only 10.2% of blocks, so this is the metric that matters) · AUROC 0.986
 - Surprise signal used: `nll_-logp_mean`.
 
 ## How the thresholds were set (no guessing)
 
 Both cut-offs are **learned from a separate validation set**, never hand-picked:
 
-- **Suspicious** when the block's surprise is at/above the best-F1 operating point (threshold = 0.8103).
-- **Normal** when surprise is below the auto-clear boundary (threshold = 0.6584) — the largest band of lowest-surprise blocks that validation showed to be almost never anomalous (see the 'Actually anomalous' column above), so clearing them is low-risk.
+- **Suspicious** when the block's surprise is at/above the best-F1 operating point (threshold = 2.1822).
+- **Normal** when surprise is below the auto-clear boundary (threshold = 1.2051) — the largest band of lowest-surprise blocks that validation showed to be almost never anomalous (see the 'Actually anomalous' column above), so clearing them is low-risk.
 - **Uncertain** is everything in between — the ambiguous middle that earns a closer look.
 
 ## Example explanations (most suspicious blocks)
@@ -34,19 +34,19 @@ _Every verdict field below is computed deterministically; the LLM only writes th
 
 ### Suspicious block #1
 
-**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **8.065**, at or above the **0.810** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
+**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **9.654**, at or above the **2.182** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
 
 ```
 Summary
-  Observed Sequence Pattern: The sequence is 11 events ending in E11 (<...>PacketResponder<...>for block<...>terminating<...>) -> E10 (<...>PacketResponder<...>Exception<...>) -> E14 (<...>Exception in receiveBlock for block<...>) -> E7 (<...>writeBlock<...>received exception<...>) -> E11 (<...>PacketResponder<...>for block<...>terminating<...>).
+  Observed Sequence Pattern: The sequence is 20 events ending in E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1103 (ciod: Received signal <*> <*> errno=0, <*>) -> E1103 (ciod: Received signal <*> <*> errno=0, <*>).
 
 Prediction
-  Expected Event    : E9 — <...>Received block<...>of size<...>from<...>
-  Observed Event    : E10 — <...>PacketResponder<...>Exception<...>
+  Expected Event    : E1103 — ciod: Received signal <*> <*> errno=0, <*>
+  Observed Event    : E1107 — ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>
   Prediction Correct: False
 
 Deviation Analysis
-  The model expected E9 ("<...>Received block<...>of size<...>from<...>"), but the sequence continued with E10 ("<...>PacketResponder<...>Exception<...>"). In workflow terms this is the E9 -> E10 transition. The templates show what each step records; they do not by themselves state why the order changed.
+  The model expected E1103 ("ciod: Received signal <*> <*> errno=0, <*>"), but the sequence continued with E1107 ("ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>"). In workflow terms this is the E1103 -> E1107 transition. The templates show what each step records; they do not by themselves state why the order changed.
 
 Confidence
   Confidence Score  : 0.0%
@@ -55,32 +55,32 @@ Confidence
   Interpretation    : The model had very low confidence in this prediction (0.0%), so the case was automatically flagged as a likely anomaly for review.
 
 Evidence-Based Interpretation
-  The expected template describes a "received block" operation from src to dest. This deviation does not explain any change in the sequence so far; it simply reports what actually occurred at each step.
+  The actual sequence (starting from E1107) does not seem to be a consistent continuation of the events already shown in the sequence, as it introduces new operations ("Error reading message prefix on CioStream socket") that are not explicitly mentioned in the expected template.
 
 Root Cause Assessment
-  The observed event template contains "exception". The sequence does not provide enough evidence to determine a deeper root cause.
+  The observed event template contains "error". The sequence does not provide enough evidence to determine a deeper root cause.
 
 Recommended Investigation
-  * Review the raw HDFS log lines matching the observed event E10: "<...>PacketResponder<...>Exception<...>".
-  * Compare against the expected event E9: "<...>Received block<...>of size<...>from<...>". Confirm whether the E9 -> E10 transition is valid for this block.
+  * Review the raw HDFS log lines matching the observed event E1107: "ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>".
+  * Compare against the expected event E1103: "ciod: Received signal <*> <*> errno=0, <*>". Confirm whether the E1103 -> E1107 transition is valid for this block.
   * Verify whether this exact event sequence has occurred in known-normal traffic for the same BlockId.
 ```
 
 ### Suspicious block #2
 
-**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **7.807**, at or above the **0.810** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
+**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **9.581**, at or above the **2.182** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
 
 ```
 Summary
-  Observed Sequence Pattern: The sequence is 12 events ending in E10 (<...>PacketResponder<...>Exception<...>) -> E14 (<...>Exception in receiveBlock for block<...>) -> E7 (<...>writeBlock<...>received exception<...>) -> E8 (<...>PacketResponder<...>for block<...>Interrupted<...>) -> E11 (<...>PacketResponder<...>for block<...>terminating<...>).
+  Observed Sequence Pattern: The sequence is 20 events ending in E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1103 (ciod: Received signal <*> <*> errno=0, <*>) -> E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1103 (ciod: Received signal <*> <*> errno=0, <*>).
 
 Prediction
-  Expected Event    : E9 — <...>Received block<...>of size<...>from<...>
-  Observed Event    : E14 — <...>Exception in receiveBlock for block<...>
+  Expected Event    : E1103 — ciod: Received signal <*> <*> errno=0, <*>
+  Observed Event    : E1107 — ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>
   Prediction Correct: False
 
 Deviation Analysis
-  The model expected E9 ("<...>Received block<...>of size<...>from<...>"), but the sequence continued with E14 ("<...>Exception in receiveBlock for block<...>"). In workflow terms this is the E9 -> E14 transition. The templates show what each step records; they do not by themselves state why the order changed.
+  The model expected E1103 ("ciod: Received signal <*> <*> errno=0, <*>"), but the sequence continued with E1107 ("ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>"). In workflow terms this is the E1103 -> E1107 transition. The templates show what each step records; they do not by themselves state why the order changed.
 
 Confidence
   Confidence Score  : 0.0%
@@ -89,36 +89,32 @@ Confidence
   Interpretation    : The model had very low confidence in this prediction (0.0%), so the case was automatically flagged as a likely anomaly for review.
 
 Evidence-Based Interpretation
-  The expected template describes an allocation of a new block, whereas 
-the actual template describes an exception in receiving a block. The actual
-event E14 is followed by an exception, not the expected operation of allocating
-a new block. The actual event does not fit the sequence so far because it follows an
-exception (E7) rather than the allocation of a new block (E22).
+  The expected template records an error reading message prefix on CioStream socket. The actual event does not contain any such operation. The actual event is a continuation of the events already shown in the sequence, as the previous errors were also related to CioStream sockets.
 
 Root Cause Assessment
-  The observed event template contains "exception". The sequence does not provide enough evidence to determine a deeper root cause.
+  The observed event template contains "error". The sequence does not provide enough evidence to determine a deeper root cause.
 
 Recommended Investigation
-  * Review the raw HDFS log lines matching the observed event E14: "<...>Exception in receiveBlock for block<...>".
-  * Compare against the expected event E9: "<...>Received block<...>of size<...>from<...>". Confirm whether the E9 -> E14 transition is valid for this block.
+  * Review the raw HDFS log lines matching the observed event E1107: "ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>".
+  * Compare against the expected event E1103: "ciod: Received signal <*> <*> errno=0, <*>". Confirm whether the E1103 -> E1107 transition is valid for this block.
   * Verify whether this exact event sequence has occurred in known-normal traffic for the same BlockId.
 ```
 
 ### Suspicious block #3
 
-**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **7.711**, at or above the **0.810** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
+**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **9.558**, at or above the **2.182** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
 
 ```
 Summary
-  Observed Sequence Pattern: The sequence is 11 events ending in E10 (<...>PacketResponder<...>Exception<...>) -> E14 (<...>Exception in receiveBlock for block<...>) -> E7 (<...>writeBlock<...>received exception<...>) -> E8 (<...>PacketResponder<...>for block<...>Interrupted<...>) -> E11 (<...>PacketResponder<...>for block<...>terminating<...>).
+  Observed Sequence Pattern: The sequence is E1103 (ciod: Received signal <*> <*> errno=0, <*>) -> E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1103 (ciod: Received signal <*> <*> errno=0, <*>).
 
 Prediction
-  Expected Event    : E9 — <...>Received block<...>of size<...>from<...>
-  Observed Event    : E14 — <...>Exception in receiveBlock for block<...>
+  Expected Event    : E1103 — ciod: Received signal <*> <*> errno=0, <*>
+  Observed Event    : E1107 — ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>
   Prediction Correct: False
 
 Deviation Analysis
-  The model expected E9 ("<...>Received block<...>of size<...>from<...>"), but the sequence continued with E14 ("<...>Exception in receiveBlock for block<...>"). In workflow terms this is the E9 -> E14 transition. The templates show what each step records; they do not by themselves state why the order changed.
+  The model expected E1103 ("ciod: Received signal <*> <*> errno=0, <*>"), but the sequence continued with E1107 ("ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>"). In workflow terms this is the E1103 -> E1107 transition. The templates show what each step records; they do not by themselves state why the order changed.
 
 Confidence
   Confidence Score  : 0.0%
@@ -127,32 +123,32 @@ Confidence
   Interpretation    : The model had very low confidence in this prediction (0.0%), so the case was automatically flagged as a likely anomaly for review.
 
 Evidence-Based Interpretation
-  The expected template does not record the "size" of the received block, as indicated by "<...>of size<...>". In contrast, the actual event E14 records this information. The sequence so far only includes events related to receiving blocks, and there is no indication that a second receiving block was attempted before this one.
+  The expected template records an "Error reading message prefix on CioStream socket" operation. The actual event does not fit the sequence so far as it introduces an unknown operation ("Received signal") that was not present in the first expected template.
 
 Root Cause Assessment
-  The observed event template contains "exception". The sequence does not provide enough evidence to determine a deeper root cause.
+  The observed event template contains "error". The sequence does not provide enough evidence to determine a deeper root cause.
 
 Recommended Investigation
-  * Review the raw HDFS log lines matching the observed event E14: "<...>Exception in receiveBlock for block<...>".
-  * Compare against the expected event E9: "<...>Received block<...>of size<...>from<...>". Confirm whether the E9 -> E14 transition is valid for this block.
+  * Review the raw HDFS log lines matching the observed event E1107: "ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>".
+  * Compare against the expected event E1103: "ciod: Received signal <*> <*> errno=0, <*>". Confirm whether the E1103 -> E1107 transition is valid for this block.
   * Verify whether this exact event sequence has occurred in known-normal traffic for the same BlockId.
 ```
 
 ### Suspicious block #4
 
-**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **6.953**, at or above the **0.810** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
+**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **9.514**, at or above the **2.182** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
 
 ```
 Summary
-  Observed Sequence Pattern: The sequence is E5 (<...>Receiving block<...>src:<...>dest:<...>) -> E5 (<...>Receiving block<...>src:<...>dest:<...>) -> E22 (<...>BLOCK* NameSystem<...>allocateBlock:<...>).
+  Observed Sequence Pattern: The sequence is 20 events ending in E1103 (ciod: Received signal <*> <*> errno=0, <*>) -> E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1103 (ciod: Received signal <*> <*> errno=0, <*>) -> E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1103 (ciod: Received signal <*> <*> errno=0, <*>).
 
 Prediction
-  Expected Event    : E5 — <...>Receiving block<...>src:<...>dest:<...>
-  Observed Event    : E11 — <...>PacketResponder<...>for block<...>terminating<...>
+  Expected Event    : E1103 — ciod: Received signal <*> <*> errno=0, <*>
+  Observed Event    : E1107 — ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>
   Prediction Correct: False
 
 Deviation Analysis
-  The model expected E5 ("<...>Receiving block<...>src:<...>dest:<...>"), but the sequence continued with E11 ("<...>PacketResponder<...>for block<...>terminating<...>"). In workflow terms this is the E5 -> E11 transition. The templates show what each step records; they do not by themselves state why the order changed.
+  The model expected E1103 ("ciod: Received signal <*> <*> errno=0, <*>"), but the sequence continued with E1107 ("ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>"). In workflow terms this is the E1103 -> E1107 transition. The templates show what each step records; they do not by themselves state why the order changed.
 
 Confidence
   Confidence Score  : 0.0%
@@ -161,32 +157,33 @@ Confidence
   Interpretation    : The model had very low confidence in this prediction (0.0%), so the case was automatically flagged as a likely anomaly for review.
 
 Evidence-Based Interpretation
-  The expected step was E5 ("<...>Receiving block<...>src:<...>dest:<...>"), but the sequence recorded E11 ("<...>PacketResponder<...>for block<...>terminating<...>") instead — a deviation at the E5 -> E11 transition.
+  The expected template records "Error reading message prefix" followed by the errno value. The actual event E1107 records "Error reading message prefix on CioStream socket to <*>" 
+but does not provide an errno value, so it cannot fit the sequence of error messages. The difference is that the actual event only provides a message but no evidence of the error's cause or impact. In contrast, the expected template includes a specific action ("Error reading message prefix") followed by relevant details (errno).
 
 Root Cause Assessment
-  The sequence does not provide enough evidence to determine a root cause.
+  The observed event template contains "error". The sequence does not provide enough evidence to determine a deeper root cause.
 
 Recommended Investigation
-  * Review the raw HDFS log lines matching the observed event E11: "<...>PacketResponder<...>for block<...>terminating<...>".
-  * Compare against the expected event E5: "<...>Receiving block<...>src:<...>dest:<...>". Confirm whether the E5 -> E11 transition is valid for this block.
+  * Review the raw HDFS log lines matching the observed event E1107: "ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>".
+  * Compare against the expected event E1103: "ciod: Received signal <*> <*> errno=0, <*>". Confirm whether the E1103 -> E1107 transition is valid for this block.
   * Verify whether this exact event sequence has occurred in known-normal traffic for the same BlockId.
 ```
 
 ### Suspicious block #5
 
-**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **6.825**, at or above the **0.810** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
+**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **9.427**, at or above the **2.182** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
 
 ```
 Summary
-  Observed Sequence Pattern: The sequence is E22 (<...>BLOCK* NameSystem<...>allocateBlock:<...>) -> E5 (<...>Receiving block<...>src:<...>dest:<...>).
+  Observed Sequence Pattern: The sequence is 20 events ending in E1103 (ciod: Received signal <*> <*> errno=0, <*>) -> E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1103 (ciod: Received signal <*> <*> errno=0, <*>) -> E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1103 (ciod: Received signal <*> <*> errno=0, <*>).
 
 Prediction
-  Expected Event    : E5 — <...>Receiving block<...>src:<...>dest:<...>
-  Observed Event    : E7 — <...>writeBlock<...>received exception<...>
+  Expected Event    : E1103 — ciod: Received signal <*> <*> errno=0, <*>
+  Observed Event    : E1107 — ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>
   Prediction Correct: False
 
 Deviation Analysis
-  The model expected E5 ("<...>Receiving block<...>src:<...>dest:<...>"), but the sequence continued with E7 ("<...>writeBlock<...>received exception<...>"). In workflow terms this is the E5 -> E7 transition. The templates show what each step records; they do not by themselves state why the order changed.
+  The model expected E1103 ("ciod: Received signal <*> <*> errno=0, <*>"), but the sequence continued with E1107 ("ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>"). In workflow terms this is the E1103 -> E1107 transition. The templates show what each step records; they do not by themselves state why the order changed.
 
 Confidence
   Confidence Score  : 0.0%
@@ -195,32 +192,32 @@ Confidence
   Interpretation    : The model had very low confidence in this prediction (0.0%), so the case was automatically flagged as a likely anomaly for review.
 
 Evidence-Based Interpretation
-  The expected template records "block" operation, which matches the actual template's "<...>BLOCK*" key. However, the expected template contains "<...>NameSystem<...>", whereas the actual event "E7 -> <...>writeBlock<...>" does not contain "<...>NameSystem<...>".
+  The expected step was E1103 ("ciod: Received signal <*> <*> errno=0, <*>"), but the sequence recorded E1107 ("ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>") instead — a deviation at the E1103 -> E1107 transition.
 
 Root Cause Assessment
-  The observed event template contains "exception". The sequence does not provide enough evidence to determine a deeper root cause.
+  The observed event template contains "error". The sequence does not provide enough evidence to determine a deeper root cause.
 
 Recommended Investigation
-  * Review the raw HDFS log lines matching the observed event E7: "<...>writeBlock<...>received exception<...>".
-  * Compare against the expected event E5: "<...>Receiving block<...>src:<...>dest:<...>". Confirm whether the E5 -> E7 transition is valid for this block.
+  * Review the raw HDFS log lines matching the observed event E1107: "ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>".
+  * Compare against the expected event E1103: "ciod: Received signal <*> <*> errno=0, <*>". Confirm whether the E1103 -> E1107 transition is valid for this block.
   * Verify whether this exact event sequence has occurred in known-normal traffic for the same BlockId.
 ```
 
 ### Suspicious block #6
 
-**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **5.378**, at or above the **0.810** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
+**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **9.417**, at or above the **2.182** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
 
 ```
 Summary
-  Observed Sequence Pattern: The sequence is 8 events ending in E5 (<...>Receiving block<...>src:<...>dest:<...>) -> E12 (<...>:Exception writing block<...>to mirror<...>) -> E14 (<...>Exception in receiveBlock for block<...>) -> E7 (<...>writeBlock<...>received exception<...>) -> E11 (<...>PacketResponder<...>for block<...>terminating<...>).
+  Observed Sequence Pattern: The sequence is E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1103 (ciod: Received signal <*> <*> errno=0, <*>) -> E1107 (ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>) -> E1103 (ciod: Received signal <*> <*> errno=0, <*>).
 
 Prediction
-  Expected Event    : E9 — <...>Received block<...>of size<...>from<...>
-  Observed Event    : E10 — <...>PacketResponder<...>Exception<...>
+  Expected Event    : E1103 — ciod: Received signal <*> <*> errno=0, <*>
+  Observed Event    : E1107 — ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>
   Prediction Correct: False
 
 Deviation Analysis
-  The model expected E9 ("<...>Received block<...>of size<...>from<...>"), but the sequence continued with E10 ("<...>PacketResponder<...>Exception<...>"). In workflow terms this is the E9 -> E10 transition. The templates show what each step records; they do not by themselves state why the order changed.
+  The model expected E1103 ("ciod: Received signal <*> <*> errno=0, <*>"), but the sequence continued with E1107 ("ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>"). In workflow terms this is the E1103 -> E1107 transition. The templates show what each step records; they do not by themselves state why the order changed.
 
 Confidence
   Confidence Score  : 0.0%
@@ -229,32 +226,32 @@ Confidence
   Interpretation    : The model had very low confidence in this prediction (0.0%), so the case was automatically flagged as a likely anomaly for review.
 
 Evidence-Based Interpretation
-  The expected template records: Receive block, src=<...>dest=<...>, Block*, NameSystem<... This template does not describe a difference that explains this deviation. The actual template records: Received block, Exception in receiveBlock for block<... The actual event fits the sequence so far because it occurred immediately after an exception writing block and before another receiving block.
+  The expected template records a "ciod" operation followed by the message prefix "Error reading message prefix on CioStream socket to <*>". However, the actual event E1107 -> ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*> contains the message prefix "Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>" which seems inconsistent with the expected template.
 
 Root Cause Assessment
-  The observed event template contains "exception". The sequence does not provide enough evidence to determine a deeper root cause.
+  The observed event template contains "error". The sequence does not provide enough evidence to determine a deeper root cause.
 
 Recommended Investigation
-  * Review the raw HDFS log lines matching the observed event E10: "<...>PacketResponder<...>Exception<...>".
-  * Compare against the expected event E9: "<...>Received block<...>of size<...>from<...>". Confirm whether the E9 -> E10 transition is valid for this block.
+  * Review the raw HDFS log lines matching the observed event E1107: "ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>".
+  * Compare against the expected event E1103: "ciod: Received signal <*> <*> errno=0, <*>". Confirm whether the E1103 -> E1107 transition is valid for this block.
   * Verify whether this exact event sequence has occurred in known-normal traffic for the same BlockId.
 ```
 
 ### Suspicious block #7
 
-**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **5.369**, at or above the **0.810** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
+**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **9.322**, at or above the **2.182** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
 
 ```
 Summary
-  Observed Sequence Pattern: The sequence is 7 events ending in E22 (<...>BLOCK* NameSystem<...>allocateBlock:<...>) -> E5 (<...>Receiving block<...>src:<...>dest:<...>) -> E14 (<...>Exception in receiveBlock for block<...>) -> E7 (<...>writeBlock<...>received exception<...>) -> E11 (<...>PacketResponder<...>for block<...>terminating<...>).
+  Observed Sequence Pattern: The sequence is E568 (rts: bad message header: cpu <*> invalid <*> <*> <*> <*> <*> PSR1=00000000 <*> PIXF=00000007) -> E568 (rts: bad message header: cpu <*> invalid <*> <*> <*> <*> <*> PSR1=00000000 <*> PIXF=00000007) -> E569 (rts: bad message header: packet index <*> greater than max 366 <*> <*> <*> <*> <*> PSR1=00000000 <*> PIXF=00000007) -> E19 (instruction address: <*>).
 
 Prediction
-  Expected Event    : E9 — <...>Received block<...>of size<...>from<...>
-  Observed Event    : E10 — <...>PacketResponder<...>Exception<...>
+  Expected Event    : E19 — instruction address: <*>
+  Observed Event    : E568 — rts: bad message header: cpu <*> invalid <*> <*> <*> <*> <*> PSR1=00000000 <*> PIXF=00000007
   Prediction Correct: False
 
 Deviation Analysis
-  The model expected E9 ("<...>Received block<...>of size<...>from<...>"), but the sequence continued with E10 ("<...>PacketResponder<...>Exception<...>"). In workflow terms this is the E9 -> E10 transition. The templates show what each step records; they do not by themselves state why the order changed.
+  The model expected E19 ("instruction address: <*>"), but the sequence continued with E568 ("rts: bad message header: cpu <*> invalid <*> <*> <*> <*> <*> PSR1=00000000 <*> PIXF=00000007"). In workflow terms this is the E19 -> E568 transition. The templates show what each step records; they do not by themselves state why the order changed.
 
 Confidence
   Confidence Score  : 0.0%
@@ -263,32 +260,32 @@ Confidence
   Interpretation    : The model had very low confidence in this prediction (0.0%), so the case was automatically flagged as a likely anomaly for review.
 
 Evidence-Based Interpretation
-  The expected template records the operation "Receiving block", but the actual template only mentions "<...>src:<...>dest:<...>", which is more ambiguous and does not clearly indicate the operation. In contrast, the expected template explicitly states "BLOCK* NameSystemallocateBlock_received_block".
+  The expected template records only "instruction address:", which matches the actual event. However, the expected template does not record " <*>" at all; instead it records an empty field. Therefore, the actual event deviates from the sequence by recording a different instruction address compared to what was expected.
 
 Root Cause Assessment
-  The observed event template contains "exception". The sequence does not provide enough evidence to determine a deeper root cause.
+  The sequence does not provide enough evidence to determine a root cause.
 
 Recommended Investigation
-  * Review the raw HDFS log lines matching the observed event E10: "<...>PacketResponder<...>Exception<...>".
-  * Compare against the expected event E9: "<...>Received block<...>of size<...>from<...>". Confirm whether the E9 -> E10 transition is valid for this block.
+  * Review the raw HDFS log lines matching the observed event E568: "rts: bad message header: cpu <*> invalid <*> <*> <*> <*> <*> PSR1=00000000 <*> PIXF=00000007".
+  * Compare against the expected event E19: "instruction address: <*>". Confirm whether the E19 -> E568 transition is valid for this block.
   * Verify whether this exact event sequence has occurred in known-normal traffic for the same BlockId.
 ```
 
 ### Suspicious block #8
 
-**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **5.356**, at or above the **0.810** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
+**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **9.217**, at or above the **2.182** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
 
 ```
 Summary
-  Observed Sequence Pattern: The sequence is 8 events ending in E5 (<...>Receiving block<...>src:<...>dest:<...>) -> E12 (<...>:Exception writing block<...>to mirror<...>) -> E14 (<...>Exception in receiveBlock for block<...>) -> E7 (<...>writeBlock<...>received exception<...>) -> E11 (<...>PacketResponder<...>for block<...>terminating<...>).
+  Observed Sequence Pattern: The sequence is 20 events ending in E18 (data TLB error interrupt) -> E18 (data TLB error interrupt) -> E18 (data TLB error interrupt) -> E18 (data TLB error interrupt) -> E9 (ddr: excessive soft failures, consider replacing the card).
 
 Prediction
-  Expected Event    : E9 — <...>Received block<...>of size<...>from<...>
-  Observed Event    : E10 — <...>PacketResponder<...>Exception<...>
+  Expected Event    : E8 — ddr: activating redundant bit steering: rank=0 <*>
+  Observed Event    : E18 — data TLB error interrupt
   Prediction Correct: False
 
 Deviation Analysis
-  The model expected E9 ("<...>Received block<...>of size<...>from<...>"), but the sequence continued with E10 ("<...>PacketResponder<...>Exception<...>"). In workflow terms this is the E9 -> E10 transition. The templates show what each step records; they do not by themselves state why the order changed.
+  The model expected E8 ("ddr: activating redundant bit steering: rank=0 <*>"), but the sequence continued with E18 ("data TLB error interrupt"). In workflow terms this is the E8 -> E18 transition. The templates show what each step records; they do not by themselves state why the order changed.
 
 Confidence
   Confidence Score  : 0.0%
@@ -297,32 +294,32 @@ Confidence
   Interpretation    : The model had very low confidence in this prediction (0.0%), so the case was automatically flagged as a likely anomaly for review.
 
 Evidence-Based Interpretation
-  The expected template records the "BLOCK*" operation, indicating a block was allocated on the NameSystem. However, the actual event E5 -> <...>Receiving block<...>src:<...>dest:<...> does not include the word "allocateBlock", instead it includes "received exception writing block". The actual sequence starts with "Received block" which does not match the expected template. The actual event E22 -> <...>BLOCK* NameSystem<...>allocateBlock:... also does not describe a block allocation operation, but rather an allocation of a Block object. This difference explains why the actual sequence diverged from the expected one.
+  The actual template for Event 18 does not record a "data TLB error interrupt" but rather a "ddr: excessive soft failures, consider replacing the card". This difference explains why the event was skipped in the sequence. The expected template did not account for this anomaly and instead recorded a repeated event ("E18 -> data TLB error interrupt").
 
 Root Cause Assessment
-  The observed event template contains "exception". The sequence does not provide enough evidence to determine a deeper root cause.
+  The observed event template contains "error". The sequence does not provide enough evidence to determine a deeper root cause.
 
 Recommended Investigation
-  * Review the raw HDFS log lines matching the observed event E10: "<...>PacketResponder<...>Exception<...>".
-  * Compare against the expected event E9: "<...>Received block<...>of size<...>from<...>". Confirm whether the E9 -> E10 transition is valid for this block.
+  * Review the raw HDFS log lines matching the observed event E18: "data TLB error interrupt".
+  * Compare against the expected event E8: "ddr: activating redundant bit steering: rank=0 <*>". Confirm whether the E8 -> E18 transition is valid for this block.
   * Verify whether this exact event sequence has occurred in known-normal traffic for the same BlockId.
 ```
 
 ### Suspicious block #9
 
-**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **5.286**, at or above the **0.810** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
+**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **9.199**, at or above the **2.182** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
 
 ```
 Summary
-  Observed Sequence Pattern: The sequence is 11 events ending in E11 (<...>PacketResponder<...>for block<...>terminating<...>) -> E10 (<...>PacketResponder<...>Exception<...>) -> E14 (<...>Exception in receiveBlock for block<...>) -> E7 (<...>writeBlock<...>received exception<...>) -> E11 (<...>PacketResponder<...>for block<...>terminating<...>).
+  Observed Sequence Pattern: The sequence is 20 events ending in E448 (ciod: Error reading message prefix after <*> on CioStream socket to <*> <*> <*> <*> <*>) -> E448 (ciod: Error reading message prefix after <*> on CioStream socket to <*> <*> <*> <*> <*>) -> E448 (ciod: Error reading message prefix after <*> on CioStream socket to <*> <*> <*> <*> <*>) -> E448 (ciod: Error reading message prefix after <*> on CioStream socket to <*> <*> <*> <*> <*>) -> E448 (ciod: Error reading message prefix after <*> on CioStream socket to <*> <*> <*> <*> <*>).
 
 Prediction
-  Expected Event    : E9 — <...>Received block<...>of size<...>from<...>
-  Observed Event    : E10 — <...>PacketResponder<...>Exception<...>
+  Expected Event    : E8 — ddr: activating redundant bit steering: rank=0 <*>
+  Observed Event    : E33 — problem state <*>
   Prediction Correct: False
 
 Deviation Analysis
-  The model expected E9 ("<...>Received block<...>of size<...>from<...>"), but the sequence continued with E10 ("<...>PacketResponder<...>Exception<...>"). In workflow terms this is the E9 -> E10 transition. The templates show what each step records; they do not by themselves state why the order changed.
+  The model expected E8 ("ddr: activating redundant bit steering: rank=0 <*>"), but the sequence continued with E33 ("problem state <*>"). In workflow terms this is the E8 -> E33 transition. The templates show what each step records; they do not by themselves state why the order changed.
 
 Confidence
   Confidence Score  : 0.0%
@@ -331,32 +328,32 @@ Confidence
   Interpretation    : The model had very low confidence in this prediction (0.0%), so the case was automatically flagged as a likely anomaly for review.
 
 Evidence-Based Interpretation
-  The expected template describes a "received block" operation from src to dest. This deviation does not explain any change in the sequence so far; it simply reports what actually occurred at each step.
+  The sequence so far shows errors as related to message prefixes and CioStream sockets.
 
 Root Cause Assessment
-  The observed event template contains "exception". The sequence does not provide enough evidence to determine a deeper root cause.
+  The sequence does not provide enough evidence to determine a root cause.
 
 Recommended Investigation
-  * Review the raw HDFS log lines matching the observed event E10: "<...>PacketResponder<...>Exception<...>".
-  * Compare against the expected event E9: "<...>Received block<...>of size<...>from<...>". Confirm whether the E9 -> E10 transition is valid for this block.
+  * Review the raw HDFS log lines matching the observed event E33: "problem state <*>".
+  * Compare against the expected event E8: "ddr: activating redundant bit steering: rank=0 <*>". Confirm whether the E8 -> E33 transition is valid for this block.
   * Verify whether this exact event sequence has occurred in known-normal traffic for the same BlockId.
 ```
 
 ### Suspicious block #10
 
-**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **5.219**, at or above the **0.810** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
+**Why this block was flagged:** its surprise score (`nll_-logp_mean`) was **9.190**, at or above the **2.182** Suspicious threshold learned on validation. The single most-surprising transition inside the block — surprise **100.0%** on the event that actually occurred — is explained below.
 
 ```
 Summary
-  Observed Sequence Pattern: The sequence is 9 events ending in E11 (<...>PacketResponder<...>for block<...>terminating<...>) -> E10 (<...>PacketResponder<...>Exception<...>) -> E14 (<...>Exception in receiveBlock for block<...>) -> E7 (<...>writeBlock<...>received exception<...>) -> E11 (<...>PacketResponder<...>for block<...>terminating<...>).
+  Observed Sequence Pattern: The sequence is E567 (rts: kernel terminated for reason <*>).
 
 Prediction
-  Expected Event    : E9 — <...>Received block<...>of size<...>from<...>
-  Observed Event    : E10 — <...>PacketResponder<...>Exception<...>
+  Expected Event    : E4 — <*> ddr errors(s) detected and corrected on rank 0, symbol <*> bit <*>
+  Observed Event    : E567 — rts: kernel terminated for reason <*>
   Prediction Correct: False
 
 Deviation Analysis
-  The model expected E9 ("<...>Received block<...>of size<...>from<...>"), but the sequence continued with E10 ("<...>PacketResponder<...>Exception<...>"). In workflow terms this is the E9 -> E10 transition. The templates show what each step records; they do not by themselves state why the order changed.
+  The model expected E4 ("<*> ddr errors(s) detected and corrected on rank 0, symbol <*> bit <*>"), but the sequence continued with E567 ("rts: kernel terminated for reason <*>"). In workflow terms this is the E4 -> E567 transition. The templates show what each step records; they do not by themselves state why the order changed.
 
 Confidence
   Confidence Score  : 0.0%
@@ -365,14 +362,17 @@ Confidence
   Interpretation    : The model had very low confidence in this prediction (0.0%), so the case was automatically flagged as a likely anomaly for review.
 
 Evidence-Based Interpretation
-  The expected template for E22 is NameSystemallocateBlock:<...>, which records the operation of allocating a block in the NameSystem. The actual template for E22, however, describes Receiving block<...>src:<...>dest:<...>, indicating that it received a block from a source. The actual event E22 does not fit the expected sequence as there is no indication that an allocation was made before receiving the block.
+  Expected template: E4 -> <*> ddr errors(s) detected and corrected on rank 0, symbol <*> bit <*>
+Actual template: E567 -> rts: kernel terminated for reason <*>
+
+The actual event records a termination of the process (rts), but no 'kernel' or specific "reason" value is provided. The difference lies in the specific details and language used between the two templates.
 
 Root Cause Assessment
-  The observed event template contains "exception". The sequence does not provide enough evidence to determine a deeper root cause.
+  The sequence does not provide enough evidence to determine a root cause.
 
 Recommended Investigation
-  * Review the raw HDFS log lines matching the observed event E10: "<...>PacketResponder<...>Exception<...>".
-  * Compare against the expected event E9: "<...>Received block<...>of size<...>from<...>". Confirm whether the E9 -> E10 transition is valid for this block.
+  * Review the raw HDFS log lines matching the observed event E567: "rts: kernel terminated for reason <*>".
+  * Compare against the expected event E4: "<*> ddr errors(s) detected and corrected on rank 0, symbol <*> bit <*>". Confirm whether the E4 -> E567 transition is valid for this block.
   * Verify whether this exact event sequence has occurred in known-normal traffic for the same BlockId.
 ```
 

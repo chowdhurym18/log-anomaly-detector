@@ -1,24 +1,24 @@
 # Anomaly-Scoring Comparison (Tasks 3 & 4)
 
-_Model held fixed (**normal_only**); only the scoring rule varies. Honest held-out TEST block split; the F1 threshold is chosen on VALIDATION and applied to TEST. Best score chosen by validation PR-AUC._
+_Model held fixed (**bgl_normal_only**); only the scoring rule varies. Honest held-out TEST block split; the F1 threshold is chosen on VALIDATION and applied to TEST. Best score chosen by validation PR-AUC._
 
-- Test blocks: **115,013** · anomaly base rate **0.029** · val blocks **57,506**
+- Test blocks: **9,427** · anomaly base rate **0.102** · val blocks **4,714**
 
-**Best separator (by val PR-AUC): `nll_-logp_mean`**
+**Best separator (by val PR-AUC): `combined_z(nll_max)+z(miss_count)`**
 
 | Score (signal + aggregation) | AUROC | PR-AUC | Precision | Recall | F1 |
 |---|---|---|---|---|---|
-| nll_-logp_mean ⭐ | 0.8917 | **0.6917** | 0.8018 | 0.5814 | 0.6740 |
-| combined_z(nll_max)+z(miss_count) | 0.8358 | **0.6728** | 0.7212 | 0.7150 | 0.7181 |
-| surprisal_1mp_max | 0.8348 | **0.6539** | 0.7935 | 0.6606 | 0.7210 |
-| nll_-logp_max | 0.8348 | **0.6536** | 0.7935 | 0.6606 | 0.7210 |
-| nll_rolling_max(w=5) | 0.8756 | **0.6515** | 0.7697 | 0.5787 | 0.6607 |
-| topk_miss_frac | 0.7704 | **0.4837** | 0.8000 | 0.4834 | 0.6026 |
-| surprisal_1mp_mean | 0.8210 | **0.4723** | 0.7226 | 0.3759 | 0.4945 |
-| topk_miss_count | 0.7622 | **0.2983** | 0.7013 | 0.2865 | 0.4068 |
-| nll_perevent_z_mean | 0.6977 | **0.2241** | 0.3778 | 0.3524 | 0.3647 |
-| nll_perevent_z_max | 0.5238 | **0.1529** | 0.6467 | 0.1957 | 0.3004 |
-| msp_self_uncertainty (1-MSP, max) | 0.4372 | **0.0341** | 0.0683 | 0.0425 | 0.0524 |
+| combined_z(nll_max)+z(miss_count) ⭐ | 0.9985 | **0.9946** | 0.9839 | 0.9523 | 0.9679 |
+| nll_rolling_max(w=5) | 0.9973 | **0.9852** | 0.9740 | 0.9306 | 0.9518 |
+| topk_miss_count | 0.9932 | **0.9595** | 0.9525 | 0.8725 | 0.9108 |
+| topk_miss_frac | 0.9932 | **0.9595** | 0.9525 | 0.8725 | 0.9108 |
+| nll_-logp_mean | 0.9863 | **0.9497** | 0.9822 | 0.8601 | 0.9171 |
+| surprisal_1mp_mean | 0.9710 | **0.8932** | 0.9654 | 0.7513 | 0.8450 |
+| msp_self_uncertainty (1-MSP, max) | 0.9703 | **0.8652** | 0.9446 | 0.8311 | 0.8842 |
+| surprisal_1mp_max | 0.9898 | **0.9079** | 0.7932 | 0.9979 | 0.8839 |
+| nll_-logp_max | 0.9897 | **0.9077** | 0.7932 | 0.9979 | 0.8839 |
+| nll_perevent_z_max | 0.8572 | **0.2976** | 0.3560 | 0.7544 | 0.4837 |
+| nll_perevent_z_mean | 0.6526 | **0.2310** | 0.2801 | 0.7254 | 0.4042 |
 
 ## Reading this
 
