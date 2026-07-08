@@ -1,31 +1,16 @@
-# BGL dataset
+## HDFS_v1
+HDFS (http://hadoop.apache.org/hdfs) is the Hadoop Distributed File System designed to run on commodity hardware. Due to the popularity of HDFS, it has been widely studied in the literature. 
 
-BGL is an open log dataset collected from a BlueGene/L supercomputer at
-Lawrence Livermore National Labs (LLNL), with 4,747,963 log messages of which
-348,460 are labeled as alerts. It is used here as the second-dataset
-validation for the suspicious-activity detector
-(`main.py --dataset bgl --detect`).
+This log set is generated in a private cloud environment using benchmark workloads, and manually labeled through handcrafted rules to identify the anomalies. The logs are sliced into traces according to block ids. Then each trace associated with a specific block id is assigned a groundtruth label: normal/anomaly. 
 
-Only the derived Drain template table (`BGL_templates.csv`) is committed in
-this repository. The raw log and the derived per-node traces are large and are
-**not** redistributed here — download and regenerate them:
-
-1. Download `BGL.log` from LogHub
-   (https://github.com/logpai/loghub — Zenodo record: https://zenodo.org/records/8196385)
-   and place it at `data/BGL/BGL.log`.
-2. Run `venv/bin/python bgl_preprocess.py` (requires `drain3`, see
-   requirements.txt) to regenerate `BGL_structured.csv`, `Event_traces.csv`,
-   and `anomaly_label.csv`.
+We have preprocessed the dataset for easy use in research, including:
++ HDFS.log_templates.csv
++ anomaly_label.csv
++ Event_traces.csv
++ Event_occurrence_matrix.csv
++ HDFS.npz
 
 ### Citation
-
-If you use the BGL dataset in your research, please cite:
-
-+ Adam Oliner, Jon Stearley. [What Supercomputers Say: A Study of Five System
-  Logs](https://ieeexplore.ieee.org/document/4273008), in Proc. of the 37th
-  Annual IEEE/IFIP International Conference on Dependable Systems and Networks
-  (DSN), 2007.
-+ Jieming Zhu, Shilin He, Pinjia He, Jinyang Liu, Michael R. Lyu. [Loghub: A
-  Large Collection of System Log Datasets for AI-driven Log
-  Analytics](https://arxiv.org/abs/2008.06448). IEEE International Symposium
-  on Software Reliability Engineering (ISSRE), 2023.
+If you use the HDFS_v1 dataset from loghub in your research, please cite the following papers.
++ Wei Xu, Ling Huang, Armando Fox, David Patterson, Michael Jordan. [Detecting Large-Scale System Problems by Mining Console Logs](https://people.eecs.berkeley.edu/~jordan/papers/xu-etal-sosp09.pdf), in Proc. of the 22nd ACM Symposium on Operating Systems Principles (SOSP), 2009.
++ Jieming Zhu, Shilin He, Pinjia He, Jinyang Liu, Michael R. Lyu. [Loghub: A Large Collection of System Log Datasets for AI-driven Log Analytics](https://arxiv.org/abs/2008.06448). IEEE International Symposium on Software Reliability Engineering (ISSRE), 2023.
