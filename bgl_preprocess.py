@@ -1,6 +1,6 @@
 # =============================================================================
 # bgl_preprocess.py — turn raw BGL.log into the SAME shape HDFS uses, so the whole
-# existing pipeline runs on it unchanged (generalization demo, professor item 4).
+# existing pipeline runs on it unchanged.
 #
 # BGL has no natural "blocks" (unlike HDFS BlockIds). The standard approach is to
 # SESSIONIZE the time-ordered log into fixed-size windows and label a window
