@@ -1,0 +1,701 @@
+rung,block_id,true,cls,parse_ok,halluc,latency
+"R0 production prompt (v1, deployed)",bgl_30642,0,NORMAL,True,False,1.2937486670000027
+"R0 production prompt (v1, deployed)",bgl_8281,1,NORMAL,True,False,1.010633332999987
+"R0 production prompt (v1, deployed)",bgl_45753,0,NORMAL,True,False,1.3330512919999933
+"R0 production prompt (v1, deployed)",bgl_30780,0,NORMAL,True,False,1.2656408340000098
+"R0 production prompt (v1, deployed)",bgl_41363,0,NORMAL,True,False,2.567380874999998
+"R0 production prompt (v1, deployed)",bgl_29872,1,NORMAL,True,False,1.2692211669999978
+"R0 production prompt (v1, deployed)",bgl_41887,1,NORMAL,True,False,1.3262460420000082
+"R0 production prompt (v1, deployed)",bgl_45853,0,NORMAL,True,False,1.0042692079999966
+"R0 production prompt (v1, deployed)",bgl_30076,0,NORMAL,True,False,1.1848148750000007
+"R0 production prompt (v1, deployed)",bgl_8048,0,NORMAL,True,False,0.9180689169999994
+"R0 production prompt (v1, deployed)",bgl_23144,0,NORMAL,True,False,1.1960779169999967
+"R0 production prompt (v1, deployed)",bgl_45556,1,NORMAL,True,False,2.373203832999991
+"R0 production prompt (v1, deployed)",bgl_20252,0,NORMAL,True,False,1.3555310830000025
+"R0 production prompt (v1, deployed)",bgl_30495,1,NORMAL,True,False,0.8598945409999885
+"R0 production prompt (v1, deployed)",bgl_24180,1,NORMAL,True,False,1.036440875000011
+"R0 production prompt (v1, deployed)",bgl_33827,0,NORMAL,True,False,0.9179575410000069
+"R0 production prompt (v1, deployed)",bgl_36717,1,NORMAL,True,False,0.8813087089999954
+"R0 production prompt (v1, deployed)",bgl_30503,1,NORMAL,True,False,1.1190976669999912
+"R0 production prompt (v1, deployed)",bgl_41582,0,NORMAL,True,False,0.9391043330000031
+"R0 production prompt (v1, deployed)",bgl_35755,1,NORMAL,True,False,1.0479689580000127
+"R0 production prompt (v1, deployed)",bgl_19968,0,NORMAL,True,False,0.9554894580000024
+"R0 production prompt (v1, deployed)",bgl_30042,0,NORMAL,True,False,1.1034765419999957
+"R0 production prompt (v1, deployed)",bgl_2213,0,NORMAL,True,False,0.9194822919999979
+"R0 production prompt (v1, deployed)",bgl_11602,0,NORMAL,True,False,1.0818886250000048
+"R0 production prompt (v1, deployed)",bgl_30988,1,NORMAL,True,False,0.9329846669999995
+"R0 production prompt (v1, deployed)",bgl_1443,0,NORMAL,True,False,1.2141631669999953
+"R0 production prompt (v1, deployed)",bgl_30785,0,NORMAL,True,False,1.1433090409999949
+"R0 production prompt (v1, deployed)",bgl_35032,0,NORMAL,True,False,1.4201264590000022
+"R0 production prompt (v1, deployed)",bgl_19852,1,NORMAL,True,False,1.006143417000004
+"R0 production prompt (v1, deployed)",bgl_41604,0,NORMAL,True,False,1.2534588749999926
+"R0 production prompt (v1, deployed)",bgl_22288,0,NORMAL,True,False,1.1239403750000037
+"R0 production prompt (v1, deployed)",bgl_32016,0,NORMAL,True,False,0.9117908749999941
+"R0 production prompt (v1, deployed)",bgl_36517,0,NORMAL,True,False,1.1432912910000113
+"R0 production prompt (v1, deployed)",bgl_36356,0,NORMAL,True,False,1.1197693339999972
+"R0 production prompt (v1, deployed)",bgl_30443,1,NORMAL,True,False,1.2686856250000034
+"R0 production prompt (v1, deployed)",bgl_41796,0,NORMAL,True,False,1.335624542000005
+"R0 production prompt (v1, deployed)",bgl_32028,0,NORMAL,True,False,1.2319216670000088
+"R0 production prompt (v1, deployed)",bgl_41517,0,NORMAL,True,False,2.5693663339999944
+"R0 production prompt (v1, deployed)",bgl_36530,0,NORMAL,True,False,0.8865777910000077
+"R0 production prompt (v1, deployed)",bgl_23802,0,NORMAL,True,False,1.2802524579999925
+"R0 production prompt (v1, deployed)",bgl_31413,0,NORMAL,True,False,0.9079880830000064
+"R0 production prompt (v1, deployed)",bgl_42700,1,NORMAL,True,False,0.8726458330000071
+"R0 production prompt (v1, deployed)",bgl_20232,0,NORMAL,True,False,1.2323337919999915
+"R0 production prompt (v1, deployed)",bgl_36203,0,NORMAL,True,False,1.8708204170000045
+"R0 production prompt (v1, deployed)",bgl_15783,0,NORMAL,True,False,1.2912612090000124
+"R0 production prompt (v1, deployed)",bgl_1638,0,NORMAL,True,False,0.9531548750000098
+"R0 production prompt (v1, deployed)",bgl_36906,1,NORMAL,True,False,1.1885881669999918
+"R0 production prompt (v1, deployed)",bgl_35507,0,NORMAL,True,False,1.046638625
+"R0 production prompt (v1, deployed)",bgl_30999,1,NORMAL,True,False,0.9448607920000001
+"R0 production prompt (v1, deployed)",bgl_38845,0,NORMAL,True,False,1.2899146669999908
+"R0 production prompt (v1, deployed)",bgl_1442,0,NORMAL,True,False,1.2454440419999884
+"R0 production prompt (v1, deployed)",bgl_36195,0,NORMAL,True,False,1.5024878749999857
+"R0 production prompt (v1, deployed)",bgl_31010,1,NORMAL,True,False,1.2038220000000024
+"R0 production prompt (v1, deployed)",bgl_40301,0,NORMAL,True,False,595.403620625
+"R0 production prompt (v1, deployed)",bgl_41960,0,NORMAL,True,False,1.591228249999972
+"R0 production prompt (v1, deployed)",bgl_45762,0,NORMAL,True,False,1.368365625000024
+"R0 production prompt (v1, deployed)",bgl_45836,1,NORMAL,True,False,1.7225791250000384
+"R0 production prompt (v1, deployed)",bgl_33551,1,NORMAL,True,False,1.037935083000093
+"R0 production prompt (v1, deployed)",bgl_1200,0,NORMAL,True,False,1.1542868750000252
+"R0 production prompt (v1, deployed)",bgl_41631,0,NORMAL,True,False,1.4541385840000203
+"R0 production prompt (v1, deployed)",bgl_35579,1,NORMAL,True,False,1.2603794169999674
+"R0 production prompt (v1, deployed)",bgl_42646,1,NORMAL,True,False,0.9986808749999909
+"R0 production prompt (v1, deployed)",bgl_27377,0,NORMAL,True,False,1.4240182080000068
+"R0 production prompt (v1, deployed)",bgl_8510,0,NORMAL,True,False,2.1606010000000424
+"R0 production prompt (v1, deployed)",bgl_41368,0,NORMAL,True,False,1.6905275000000302
+"R0 production prompt (v1, deployed)",bgl_35794,1,NORMAL,True,False,1.2846258340000531
+"R0 production prompt (v1, deployed)",bgl_45547,1,NORMAL,True,False,1.9641853749999427
+"R0 production prompt (v1, deployed)",bgl_746,0,NORMAL,True,False,1.2198099999999386
+"R0 production prompt (v1, deployed)",bgl_36632,0,NORMAL,True,False,1.052363208000088
+"R0 production prompt (v1, deployed)",bgl_33043,1,NORMAL,True,False,1.2928140409999287
+"R0 production prompt (v1, deployed)",bgl_34914,0,NORMAL,True,False,1.2247938330000352
+"R0 production prompt (v1, deployed)",bgl_30077,1,NORMAL,True,False,1.4461907080000174
+"R0 production prompt (v1, deployed)",bgl_30071,0,NORMAL,True,False,1.4870015829999375
+"R0 production prompt (v1, deployed)",bgl_36523,0,NORMAL,True,False,1.3201340000000528
+"R0 production prompt (v1, deployed)",bgl_747,0,NORMAL,True,False,1.5228483339999457
+"R0 production prompt (v1, deployed)",bgl_45717,0,NORMAL,True,False,1.927603124999905
+"R0 production prompt (v1, deployed)",bgl_30991,1,NORMAL,True,False,1.1472572089999176
+"R0 production prompt (v1, deployed)",bgl_32041,0,NORMAL,True,False,1.1788118340000437
+"R0 production prompt (v1, deployed)",bgl_38850,0,NORMAL,True,False,1.5103153750000047
+"R0 production prompt (v1, deployed)",bgl_41935,0,NORMAL,True,False,1.4001276669999925
+"R0 production prompt (v1, deployed)",bgl_9261,0,NORMAL,True,False,1.2111691249999694
+"R0 production prompt (v1, deployed)",bgl_33606,0,NORMAL,True,False,1.647375583999974
+"R0 production prompt (v1, deployed)",bgl_43056,0,NORMAL,True,False,1.2652827079999724
+"R0 production prompt (v1, deployed)",bgl_42321,0,NORMAL,True,False,1.2020570420000922
+"R0 production prompt (v1, deployed)",bgl_1206,0,NORMAL,True,False,1.1040571659999614
+"R0 production prompt (v1, deployed)",bgl_30536,0,NORMAL,True,False,1.6049043339999116
+"R0 production prompt (v1, deployed)",bgl_36419,1,NORMAL,True,False,1.3352186670000492
+"R0 production prompt (v1, deployed)",bgl_29733,0,NORMAL,True,False,1.93064308299995
+"R0 production prompt (v1, deployed)",bgl_35574,1,NORMAL,True,False,1.2728715000000648
+"R0 production prompt (v1, deployed)",bgl_34961,0,NORMAL,True,False,1.2447723330000144
+"R0 production prompt (v1, deployed)",bgl_36174,0,NORMAL,True,False,1.2020867499999213
+"R0 production prompt (v1, deployed)",bgl_30020,0,NORMAL,True,False,1.4514225000000351
+"R0 production prompt (v1, deployed)",bgl_18743,0,NORMAL,True,False,1.1039572089999865
+"R0 production prompt (v1, deployed)",bgl_35836,0,NORMAL,True,False,1.424587875000043
+"R0 production prompt (v1, deployed)",bgl_35880,0,NORMAL,True,False,1.5699977909999916
+"R0 production prompt (v1, deployed)",bgl_30140,1,NORMAL,True,False,1.784417541000039
+"R0 production prompt (v1, deployed)",bgl_35506,1,NORMAL,True,False,1.4944459999999253
+"R0 production prompt (v1, deployed)",bgl_24848,0,NORMAL,True,False,1.3841844170000286
+"R0 production prompt (v1, deployed)",bgl_35974,0,NORMAL,True,False,1.596147541999926
+"R0 production prompt (v1, deployed)",bgl_30798,0,NORMAL,True,False,1.9763260000000855
+R1 + dataset-aware framing,bgl_30642,0,NORMAL,True,False,1.0836919590000207
+R1 + dataset-aware framing,bgl_8281,1,NORMAL,True,False,0.8885115420000602
+R1 + dataset-aware framing,bgl_45753,0,NORMAL,True,False,1.3857536250000067
+R1 + dataset-aware framing,bgl_30780,0,NORMAL,True,False,1.3142572080000718
+R1 + dataset-aware framing,bgl_41363,0,NORMAL,True,False,1.6526112090000424
+R1 + dataset-aware framing,bgl_29872,1,NORMAL,True,False,1.3226327920000358
+R1 + dataset-aware framing,bgl_41887,1,NORMAL,True,False,1.3478842499999928
+R1 + dataset-aware framing,bgl_45853,0,NORMAL,True,False,0.8684783329999846
+R1 + dataset-aware framing,bgl_30076,0,NORMAL,True,False,1.3298232920000146
+R1 + dataset-aware framing,bgl_8048,0,NORMAL,True,False,0.7706839590000527
+R1 + dataset-aware framing,bgl_23144,0,NORMAL,True,False,1.294247165999991
+R1 + dataset-aware framing,bgl_45556,1,NORMAL,True,False,1.890862416999994
+R1 + dataset-aware framing,bgl_20252,0,NORMAL,True,False,1.2506588749999992
+R1 + dataset-aware framing,bgl_30495,1,NORMAL,True,False,1.3736683749999656
+R1 + dataset-aware framing,bgl_24180,1,NORMAL,True,False,1.3964191669999764
+R1 + dataset-aware framing,bgl_33827,0,NORMAL,True,False,1.0034826250000606
+R1 + dataset-aware framing,bgl_36717,1,NORMAL,True,False,1.1055421669999532
+R1 + dataset-aware framing,bgl_30503,1,NORMAL,True,False,1.4272013330000846
+R1 + dataset-aware framing,bgl_41582,0,NORMAL,True,False,0.9153014160000339
+R1 + dataset-aware framing,bgl_35755,1,NORMAL,True,False,1.2641336249999995
+R1 + dataset-aware framing,bgl_19968,0,NORMAL,True,False,1.2126129170000013
+R1 + dataset-aware framing,bgl_30042,0,NORMAL,True,False,1.325454041999933
+R1 + dataset-aware framing,bgl_2213,0,NORMAL,True,False,1.107558499999982
+R1 + dataset-aware framing,bgl_11602,0,NORMAL,True,False,1.1097118330000058
+R1 + dataset-aware framing,bgl_30988,1,NORMAL,True,False,0.8409050830000524
+R1 + dataset-aware framing,bgl_1443,0,NORMAL,True,False,1.103526208000062
+R1 + dataset-aware framing,bgl_30785,0,NORMAL,True,False,1.3868702919999123
+R1 + dataset-aware framing,bgl_35032,0,NORMAL,True,False,1.3141710419999981
+R1 + dataset-aware framing,bgl_19852,1,NORMAL,True,False,1.1136979169999677
+R1 + dataset-aware framing,bgl_41604,0,NORMAL,True,False,1.2033091669999294
+R1 + dataset-aware framing,bgl_22288,0,NORMAL,True,False,1.2281348330000128
+R1 + dataset-aware framing,bgl_32016,0,NORMAL,True,False,0.9085521250000284
+R1 + dataset-aware framing,bgl_36517,0,NORMAL,True,False,1.2884964590000436
+R1 + dataset-aware framing,bgl_36356,0,NORMAL,True,False,1.3280394170000136
+R1 + dataset-aware framing,bgl_30443,1,NORMAL,True,False,1.1237859589999744
+R1 + dataset-aware framing,bgl_41796,0,NORMAL,True,False,1.315572374999988
+R1 + dataset-aware framing,bgl_32028,0,NORMAL,True,False,1.37330350000002
+R1 + dataset-aware framing,bgl_41517,0,NORMAL,True,False,1.6706068329999653
+R1 + dataset-aware framing,bgl_36530,0,NORMAL,True,False,1.1977768749999314
+R1 + dataset-aware framing,bgl_23802,0,NORMAL,True,False,1.1148048329999938
+R1 + dataset-aware framing,bgl_31413,0,NORMAL,True,False,0.9182930839999699
+R1 + dataset-aware framing,bgl_42700,1,NORMAL,True,False,0.9156620830000293
+R1 + dataset-aware framing,bgl_20232,0,NORMAL,True,False,1.437567333000061
+R1 + dataset-aware framing,bgl_36203,0,NORMAL,True,False,0.9538993339999706
+R1 + dataset-aware framing,bgl_15783,0,NORMAL,True,False,1.3911403330000667
+R1 + dataset-aware framing,bgl_1638,0,NORMAL,True,False,0.9291657920000489
+R1 + dataset-aware framing,bgl_36906,1,NORMAL,True,False,1.3450389589999077
+R1 + dataset-aware framing,bgl_35507,0,NORMAL,True,False,0.8255757499999845
+R1 + dataset-aware framing,bgl_30999,1,NORMAL,True,False,1.1975831670000616
+R1 + dataset-aware framing,bgl_38845,0,NORMAL,True,False,1.391328958000031
+R1 + dataset-aware framing,bgl_1442,0,NORMAL,True,False,0.8094937089999803
+R1 + dataset-aware framing,bgl_36195,0,NORMAL,True,False,1.2752360000000635
+R1 + dataset-aware framing,bgl_31010,1,NORMAL,True,False,1.036172957999952
+R1 + dataset-aware framing,bgl_40301,0,NORMAL,True,False,1.5430785839999999
+R1 + dataset-aware framing,bgl_41960,0,NORMAL,True,False,1.1153494999999793
+R1 + dataset-aware framing,bgl_45762,0,NORMAL,True,False,1.2466493340000397
+R1 + dataset-aware framing,bgl_45836,1,NORMAL,True,False,1.2856994160000568
+R1 + dataset-aware framing,bgl_33551,1,NORMAL,True,False,0.9028113330000451
+R1 + dataset-aware framing,bgl_1200,0,NORMAL,True,False,0.8753055839999888
+R1 + dataset-aware framing,bgl_41631,0,NORMAL,True,False,1.2714727910000647
+R1 + dataset-aware framing,bgl_35579,1,NORMAL,True,False,1.0585252079999918
+R1 + dataset-aware framing,bgl_42646,1,NORMAL,True,False,0.9044819169999982
+R1 + dataset-aware framing,bgl_27377,0,NORMAL,True,False,1.407960084000024
+R1 + dataset-aware framing,bgl_8510,0,NORMAL,True,False,1.7721615000000384
+R1 + dataset-aware framing,bgl_41368,0,NORMAL,True,False,1.5998688329999595
+R1 + dataset-aware framing,bgl_35794,1,NORMAL,True,False,1.3482810420000533
+R1 + dataset-aware framing,bgl_45547,1,NORMAL,True,False,1.7469882499999585
+R1 + dataset-aware framing,bgl_746,0,NORMAL,True,False,0.9459452090000013
+R1 + dataset-aware framing,bgl_36632,0,NORMAL,True,False,0.9942182499999035
+R1 + dataset-aware framing,bgl_33043,1,NORMAL,True,False,1.2109642499999609
+R1 + dataset-aware framing,bgl_34914,0,NORMAL,True,False,1.6260920839999926
+R1 + dataset-aware framing,bgl_30077,1,NORMAL,True,False,1.3784698750000643
+R1 + dataset-aware framing,bgl_30071,0,NORMAL,True,False,1.1631707920000736
+R1 + dataset-aware framing,bgl_36523,0,NORMAL,True,False,1.2066122500000347
+R1 + dataset-aware framing,bgl_747,0,NORMAL,True,False,1.4970315409999557
+R1 + dataset-aware framing,bgl_45717,0,NORMAL,True,False,1.3080206670000507
+R1 + dataset-aware framing,bgl_30991,1,NORMAL,True,False,1.2399445839999998
+R1 + dataset-aware framing,bgl_32041,0,NORMAL,True,False,0.9906912499999407
+R1 + dataset-aware framing,bgl_38850,0,NORMAL,True,False,1.1807289999999284
+R1 + dataset-aware framing,bgl_41935,0,NORMAL,True,False,1.3344320839999
+R1 + dataset-aware framing,bgl_9261,0,NORMAL,True,False,1.4950189589999354
+R1 + dataset-aware framing,bgl_33606,0,NORMAL,True,False,1.4010143750000452
+R1 + dataset-aware framing,bgl_43056,0,NORMAL,True,False,1.1024829169999748
+R1 + dataset-aware framing,bgl_42321,0,NORMAL,True,False,1.0740860419999763
+R1 + dataset-aware framing,bgl_1206,0,NORMAL,True,False,0.8154826249999587
+R1 + dataset-aware framing,bgl_30536,0,NORMAL,True,False,1.4097606249999899
+R1 + dataset-aware framing,bgl_36419,1,NORMAL,True,False,1.249514459000011
+R1 + dataset-aware framing,bgl_29733,0,NORMAL,True,False,2.0509815829999525
+R1 + dataset-aware framing,bgl_35574,1,NORMAL,True,False,1.329640583000014
+R1 + dataset-aware framing,bgl_34961,0,NORMAL,True,False,1.096455542000058
+R1 + dataset-aware framing,bgl_36174,0,NORMAL,True,False,1.3178557920000458
+R1 + dataset-aware framing,bgl_30020,0,NORMAL,True,False,1.3614555829999517
+R1 + dataset-aware framing,bgl_18743,0,NORMAL,True,False,0.7979460830000562
+R1 + dataset-aware framing,bgl_35836,0,NORMAL,True,False,1.3078099589999965
+R1 + dataset-aware framing,bgl_35880,0,NORMAL,True,False,1.3102404169999318
+R1 + dataset-aware framing,bgl_30140,1,NORMAL,True,False,1.224259874999916
+R1 + dataset-aware framing,bgl_35506,1,NORMAL,True,False,1.1739767499999516
+R1 + dataset-aware framing,bgl_24848,0,NORMAL,True,False,1.329667666999967
+R1 + dataset-aware framing,bgl_35974,0,NORMAL,True,False,1.44727745900002
+R1 + dataset-aware framing,bgl_30798,0,NORMAL,True,False,1.2618941670000368
+R2 + grounded evidence + relaxed criteria,bgl_30642,0,NORMAL,True,False,1.2654004580000446
+R2 + grounded evidence + relaxed criteria,bgl_8281,1,NORMAL,True,False,1.0683706670000674
+R2 + grounded evidence + relaxed criteria,bgl_45753,0,NORMAL,True,False,2.4874639999999317
+R2 + grounded evidence + relaxed criteria,bgl_30780,0,NORMAL,True,False,1.6640861249999261
+R2 + grounded evidence + relaxed criteria,bgl_41363,0,NORMAL,True,False,1.8029552919999787
+R2 + grounded evidence + relaxed criteria,bgl_29872,1,NORMAL,True,False,2.470811708000042
+R2 + grounded evidence + relaxed criteria,bgl_41887,1,NORMAL,True,False,1.8454040840000516
+R2 + grounded evidence + relaxed criteria,bgl_45853,0,NORMAL,True,False,1.1719710830000167
+R2 + grounded evidence + relaxed criteria,bgl_30076,0,NORMAL,True,False,1.8665262920000032
+R2 + grounded evidence + relaxed criteria,bgl_8048,0,NORMAL,True,False,1.0125698330000432
+R2 + grounded evidence + relaxed criteria,bgl_23144,0,NORMAL,True,False,1.4786384999999882
+R2 + grounded evidence + relaxed criteria,bgl_45556,1,NORMAL,True,False,1.7820959999999104
+R2 + grounded evidence + relaxed criteria,bgl_20252,0,NORMAL,True,False,1.320588832999988
+R2 + grounded evidence + relaxed criteria,bgl_30495,1,NORMAL,True,False,1.5650047499999573
+R2 + grounded evidence + relaxed criteria,bgl_24180,1,NORMAL,True,False,2.1437207919999537
+R2 + grounded evidence + relaxed criteria,bgl_33827,0,NORMAL,True,False,1.2372295000000122
+R2 + grounded evidence + relaxed criteria,bgl_36717,1,NORMAL,True,False,1.1646994999999833
+R2 + grounded evidence + relaxed criteria,bgl_30503,1,NORMAL,True,False,1.3338482079999494
+R2 + grounded evidence + relaxed criteria,bgl_41582,0,NORMAL,True,False,1.0927289579999524
+R2 + grounded evidence + relaxed criteria,bgl_35755,1,NORMAL,True,False,1.5072985420000578
+R2 + grounded evidence + relaxed criteria,bgl_19968,0,NORMAL,True,False,1.3631179999999858
+R2 + grounded evidence + relaxed criteria,bgl_30042,0,NORMAL,True,False,1.7555441250000285
+R2 + grounded evidence + relaxed criteria,bgl_2213,0,NORMAL,True,False,1.4342395840000108
+R2 + grounded evidence + relaxed criteria,bgl_11602,0,NORMAL,True,False,2.3656820830000242
+R2 + grounded evidence + relaxed criteria,bgl_30988,1,NORMAL,True,False,1.1555728330000647
+R2 + grounded evidence + relaxed criteria,bgl_1443,0,NORMAL,True,False,1.3356976659999873
+R2 + grounded evidence + relaxed criteria,bgl_30785,0,NORMAL,True,False,1.613408500000105
+R2 + grounded evidence + relaxed criteria,bgl_35032,0,NORMAL,True,False,1.3062109580000651
+R2 + grounded evidence + relaxed criteria,bgl_19852,1,NORMAL,True,False,1.1229500839999673
+R2 + grounded evidence + relaxed criteria,bgl_41604,0,NORMAL,True,False,1.2466619580000042
+R2 + grounded evidence + relaxed criteria,bgl_22288,0,NORMAL,True,False,1.4349973340000588
+R2 + grounded evidence + relaxed criteria,bgl_32016,0,NORMAL,True,False,1.1140651250000246
+R2 + grounded evidence + relaxed criteria,bgl_36517,0,NORMAL,True,False,1.5549035840000442
+R2 + grounded evidence + relaxed criteria,bgl_36356,0,NORMAL,True,False,1.6075321250000343
+R2 + grounded evidence + relaxed criteria,bgl_30443,1,NORMAL,True,False,1.2883712909999758
+R2 + grounded evidence + relaxed criteria,bgl_41796,0,NORMAL,True,False,1.3850953749999917
+R2 + grounded evidence + relaxed criteria,bgl_32028,0,NORMAL,True,False,1.3996527919999835
+R2 + grounded evidence + relaxed criteria,bgl_41517,0,NORMAL,True,False,1.7743899999999257
+R2 + grounded evidence + relaxed criteria,bgl_36530,0,NORMAL,True,False,1.1305460840000023
+R2 + grounded evidence + relaxed criteria,bgl_23802,0,NORMAL,True,False,1.2580544580000605
+R2 + grounded evidence + relaxed criteria,bgl_31413,0,NORMAL,True,False,1.0903467919999912
+R2 + grounded evidence + relaxed criteria,bgl_42700,1,NORMAL,True,False,1.0986795830000347
+R2 + grounded evidence + relaxed criteria,bgl_20232,0,NORMAL,True,False,1.4057972499999778
+R2 + grounded evidence + relaxed criteria,bgl_36203,0,NORMAL,True,False,1.138727249999988
+R2 + grounded evidence + relaxed criteria,bgl_15783,0,NORMAL,True,False,1.3747041249999938
+R2 + grounded evidence + relaxed criteria,bgl_1638,0,NORMAL,True,False,1.148906874999966
+R2 + grounded evidence + relaxed criteria,bgl_36906,1,NORMAL,True,False,1.3327290419999827
+R2 + grounded evidence + relaxed criteria,bgl_35507,0,NORMAL,True,False,0.9621134999999867
+R2 + grounded evidence + relaxed criteria,bgl_30999,1,NORMAL,True,False,1.170380625000007
+R2 + grounded evidence + relaxed criteria,bgl_38845,0,NORMAL,True,False,1.7860373330000812
+R2 + grounded evidence + relaxed criteria,bgl_1442,0,NORMAL,True,False,1.2032343329999549
+R2 + grounded evidence + relaxed criteria,bgl_36195,0,NORMAL,True,False,2.520294583000009
+R2 + grounded evidence + relaxed criteria,bgl_31010,1,NORMAL,True,False,1.2276544999999714
+R2 + grounded evidence + relaxed criteria,bgl_40301,0,NORMAL,True,False,1.9850493750000169
+R2 + grounded evidence + relaxed criteria,bgl_41960,0,NORMAL,True,False,2.347947915999953
+R2 + grounded evidence + relaxed criteria,bgl_45762,0,NORMAL,True,False,1.5265551250000726
+R2 + grounded evidence + relaxed criteria,bgl_45836,1,NORMAL,True,False,1.7252324999999473
+R2 + grounded evidence + relaxed criteria,bgl_33551,1,NORMAL,True,False,1.1208012499999995
+R2 + grounded evidence + relaxed criteria,bgl_1200,0,NORMAL,True,False,1.1401390000000902
+R2 + grounded evidence + relaxed criteria,bgl_41631,0,NORMAL,True,False,1.5042830830000185
+R2 + grounded evidence + relaxed criteria,bgl_35579,1,NORMAL,True,False,1.2740906660000064
+R2 + grounded evidence + relaxed criteria,bgl_42646,1,NORMAL,True,False,1.0660164579999218
+R2 + grounded evidence + relaxed criteria,bgl_27377,0,NORMAL,True,False,1.5066806249999445
+R2 + grounded evidence + relaxed criteria,bgl_8510,0,NORMAL,True,False,2.149563374999957
+R2 + grounded evidence + relaxed criteria,bgl_41368,0,NORMAL,True,False,1.9527064589999554
+R2 + grounded evidence + relaxed criteria,bgl_35794,1,NORMAL,True,False,1.3561119580000423
+R2 + grounded evidence + relaxed criteria,bgl_45547,1,NORMAL,True,False,1.8956902920000402
+R2 + grounded evidence + relaxed criteria,bgl_746,0,NORMAL,True,False,1.125594417000002
+R2 + grounded evidence + relaxed criteria,bgl_36632,0,NORMAL,True,False,1.1653451250000444
+R2 + grounded evidence + relaxed criteria,bgl_33043,1,NORMAL,True,False,1.9788083330000745
+R2 + grounded evidence + relaxed criteria,bgl_34914,0,NORMAL,True,False,1.8249302499999658
+R2 + grounded evidence + relaxed criteria,bgl_30077,1,NORMAL,True,False,1.3737176670000508
+R2 + grounded evidence + relaxed criteria,bgl_30071,0,NORMAL,True,False,1.4087117090000447
+R2 + grounded evidence + relaxed criteria,bgl_36523,0,NORMAL,True,False,1.4113000419998798
+R2 + grounded evidence + relaxed criteria,bgl_747,0,NORMAL,True,False,1.6541025000001355
+R2 + grounded evidence + relaxed criteria,bgl_45717,0,NORMAL,True,False,1.422265500000094
+R2 + grounded evidence + relaxed criteria,bgl_30991,1,NORMAL,True,False,1.0640040000000681
+R2 + grounded evidence + relaxed criteria,bgl_32041,0,NORMAL,True,False,1.2021829579998666
+R2 + grounded evidence + relaxed criteria,bgl_38850,0,NORMAL,True,False,1.6968334580001283
+R2 + grounded evidence + relaxed criteria,bgl_41935,0,NORMAL,True,False,1.3853971660000752
+R2 + grounded evidence + relaxed criteria,bgl_9261,0,NORMAL,True,False,1.3285847500001182
+R2 + grounded evidence + relaxed criteria,bgl_33606,0,NORMAL,True,False,1.5103857090000474
+R2 + grounded evidence + relaxed criteria,bgl_43056,0,NORMAL,True,False,1.1523315829999774
+R2 + grounded evidence + relaxed criteria,bgl_42321,0,NORMAL,True,False,1.197529083000063
+R2 + grounded evidence + relaxed criteria,bgl_1206,0,NORMAL,True,False,1.137891917000161
+R2 + grounded evidence + relaxed criteria,bgl_30536,0,NORMAL,True,False,2.72942891699995
+R2 + grounded evidence + relaxed criteria,bgl_36419,1,NORMAL,True,False,1.420205291000002
+R2 + grounded evidence + relaxed criteria,bgl_29733,0,NORMAL,True,False,2.173480292000022
+R2 + grounded evidence + relaxed criteria,bgl_35574,1,NORMAL,True,False,1.5181609999999637
+R2 + grounded evidence + relaxed criteria,bgl_34961,0,NORMAL,True,False,1.2168914999999743
+R2 + grounded evidence + relaxed criteria,bgl_36174,0,NORMAL,True,False,1.3408055419999982
+R2 + grounded evidence + relaxed criteria,bgl_30020,0,NORMAL,True,False,2.249233000000004
+R2 + grounded evidence + relaxed criteria,bgl_18743,0,NORMAL,True,False,1.195773082999949
+R2 + grounded evidence + relaxed criteria,bgl_35836,0,NORMAL,True,False,2.1815672919999543
+R2 + grounded evidence + relaxed criteria,bgl_35880,0,NORMAL,True,False,1.5041422500000863
+R2 + grounded evidence + relaxed criteria,bgl_30140,1,NORMAL,True,False,1.6376426669999091
+R2 + grounded evidence + relaxed criteria,bgl_35506,1,NORMAL,True,False,1.7938205829998424
+R2 + grounded evidence + relaxed criteria,bgl_24848,0,NORMAL,True,False,1.5395521670000107
+R2 + grounded evidence + relaxed criteria,bgl_35974,0,NORMAL,True,False,1.646155207999982
+R2 + grounded evidence + relaxed criteria,bgl_30798,0,NORMAL,True,False,1.507078250000177
+R3 + structured JSON output,bgl_30642,0,NORMAL,True,False,1.619324916000096
+R3 + structured JSON output,bgl_8281,1,NORMAL,True,False,1.49765354200008
+R3 + structured JSON output,bgl_45753,0,NORMAL,True,False,2.146999416999961
+R3 + structured JSON output,bgl_30780,0,NORMAL,True,False,1.9861253750000287
+R3 + structured JSON output,bgl_41363,0,NORMAL,True,False,2.268682540999862
+R3 + structured JSON output,bgl_29872,1,NORMAL,True,False,1.8397332500001085
+R3 + structured JSON output,bgl_41887,1,NORMAL,True,False,1.947472333000178
+R3 + structured JSON output,bgl_45853,0,NORMAL,True,False,1.661715834000006
+R3 + structured JSON output,bgl_30076,0,NORMAL,True,False,1.9517205420002028
+R3 + structured JSON output,bgl_8048,0,NORMAL,True,False,1.5261659169998438
+R3 + structured JSON output,bgl_23144,0,NORMAL,True,False,2.148930291999932
+R3 + structured JSON output,bgl_45556,1,NORMAL,True,False,2.224012749999929
+R3 + structured JSON output,bgl_20252,0,NORMAL,True,False,1.8742873339999733
+R3 + structured JSON output,bgl_30495,1,NORMAL,True,False,2.3799549580000985
+R3 + structured JSON output,bgl_24180,1,NORMAL,True,False,1.822670541999969
+R3 + structured JSON output,bgl_33827,0,NORMAL,True,False,1.604951832999859
+R3 + structured JSON output,bgl_36717,1,NORMAL,True,False,1.6628231669999423
+R3 + structured JSON output,bgl_30503,1,NORMAL,True,False,1.8787880419999965
+R3 + structured JSON output,bgl_41582,0,NORMAL,True,False,1.5801228749999154
+R3 + structured JSON output,bgl_35755,1,NORMAL,True,False,2.138811707999821
+R3 + structured JSON output,bgl_19968,0,NORMAL,True,False,2.610717374999922
+R3 + structured JSON output,bgl_30042,0,NORMAL,True,False,1.8695806659998198
+R3 + structured JSON output,bgl_2213,0,NORMAL,True,False,1.8494335420000425
+R3 + structured JSON output,bgl_11602,0,NORMAL,True,False,1.83276491599986
+R3 + structured JSON output,bgl_30988,1,NORMAL,True,False,1.4811644999999771
+R3 + structured JSON output,bgl_1443,0,NORMAL,True,False,1.9886035419999644
+R3 + structured JSON output,bgl_30785,0,NORMAL,True,False,3.4308636670000396
+R3 + structured JSON output,bgl_35032,0,NORMAL,True,False,1.812479250000024
+R3 + structured JSON output,bgl_19852,1,NORMAL,True,False,1.657895167000106
+R3 + structured JSON output,bgl_41604,0,NORMAL,True,False,1.820871249999982
+R3 + structured JSON output,bgl_22288,0,NORMAL,True,False,1.9799076249998961
+R3 + structured JSON output,bgl_32016,0,NORMAL,True,False,1.6156734999999571
+R3 + structured JSON output,bgl_36517,0,NORMAL,True,False,1.9655386670001462
+R3 + structured JSON output,bgl_36356,0,NORMAL,True,False,1.8329496249998556
+R3 + structured JSON output,bgl_30443,1,NORMAL,True,False,1.8028557499999351
+R3 + structured JSON output,bgl_41796,0,NORMAL,True,False,1.9866190000000188
+R3 + structured JSON output,bgl_32028,0,NORMAL,True,False,2.334842750000007
+R3 + structured JSON output,bgl_41517,0,NORMAL,True,False,2.2662706670000716
+R3 + structured JSON output,bgl_36530,0,NORMAL,True,False,1.605291416
+R3 + structured JSON output,bgl_23802,0,NORMAL,True,False,1.764200666999841
+R3 + structured JSON output,bgl_31413,0,NORMAL,True,False,1.5619852919999175
+R3 + structured JSON output,bgl_42700,1,NORMAL,True,False,1.5478472920001423
+R3 + structured JSON output,bgl_20232,0,NORMAL,True,False,2.0181999579999683
+R3 + structured JSON output,bgl_36203,0,NORMAL,True,False,1.6149684580000212
+R3 + structured JSON output,bgl_15783,0,NORMAL,True,False,2.221921457999997
+R3 + structured JSON output,bgl_1638,0,NORMAL,True,False,1.6942971250000483
+R3 + structured JSON output,bgl_36906,1,NORMAL,True,False,2.3122975000001134
+R3 + structured JSON output,bgl_35507,0,NORMAL,True,False,1.5585596660000647
+R3 + structured JSON output,bgl_30999,1,NORMAL,True,False,1.6880929580001975
+R3 + structured JSON output,bgl_38845,0,NORMAL,True,False,1.8971597920001386
+R3 + structured JSON output,bgl_1442,0,NORMAL,True,False,1.6033925409999483
+R3 + structured JSON output,bgl_36195,0,NORMAL,True,False,2.702767666999989
+R3 + structured JSON output,bgl_31010,1,NORMAL,True,False,1.6683465000000979
+R3 + structured JSON output,bgl_40301,0,NORMAL,True,False,2.2190988340000786
+R3 + structured JSON output,bgl_41960,0,NORMAL,True,False,2.020421208000016
+R3 + structured JSON output,bgl_45762,0,NORMAL,True,False,1.9791062919998694
+R3 + structured JSON output,bgl_45836,1,NORMAL,True,False,2.0150160830000914
+R3 + structured JSON output,bgl_33551,1,NORMAL,True,False,1.4194277090000469
+R3 + structured JSON output,bgl_1200,0,NORMAL,True,False,1.6288900829999875
+R3 + structured JSON output,bgl_41631,0,NORMAL,True,False,1.95015966699998
+R3 + structured JSON output,bgl_35579,1,NORMAL,True,False,1.5672567090000484
+R3 + structured JSON output,bgl_42646,1,NORMAL,True,False,1.532752667000068
+R3 + structured JSON output,bgl_27377,0,NORMAL,True,False,1.9707651670000814
+R3 + structured JSON output,bgl_8510,0,NORMAL,True,False,2.393930208000029
+R3 + structured JSON output,bgl_41368,0,NORMAL,True,False,2.200438042000087
+R3 + structured JSON output,bgl_35794,1,NORMAL,True,False,2.3409376669999347
+R3 + structured JSON output,bgl_45547,1,NORMAL,True,False,2.299442334000105
+R3 + structured JSON output,bgl_746,0,NORMAL,True,False,1.7336722920001648
+R3 + structured JSON output,bgl_36632,0,NORMAL,True,False,1.6145394999998643
+R3 + structured JSON output,bgl_33043,1,NORMAL,True,False,1.799545624999837
+R3 + structured JSON output,bgl_34914,0,NORMAL,True,False,2.1518839159998606
+R3 + structured JSON output,bgl_30077,1,NORMAL,True,False,2.5666534169999977
+R3 + structured JSON output,bgl_30071,0,NORMAL,True,False,2.2960104999999658
+R3 + structured JSON output,bgl_36523,0,NORMAL,True,False,1.879432124999994
+R3 + structured JSON output,bgl_747,0,NORMAL,True,False,2.126176457999918
+R3 + structured JSON output,bgl_45717,0,NORMAL,True,False,1.946339165999916
+R3 + structured JSON output,bgl_30991,1,NORMAL,True,False,1.5827760419999777
+R3 + structured JSON output,bgl_32041,0,NORMAL,True,False,1.6620986249999987
+R3 + structured JSON output,bgl_38850,0,NORMAL,True,False,3.0141250829999535
+R3 + structured JSON output,bgl_41935,0,NORMAL,True,False,1.975612958000056
+R3 + structured JSON output,bgl_9261,0,NORMAL,True,False,1.841746042000068
+R3 + structured JSON output,bgl_33606,0,NORMAL,True,False,2.3673452079999606
+R3 + structured JSON output,bgl_43056,0,NORMAL,True,False,1.7537603749999562
+R3 + structured JSON output,bgl_42321,0,NORMAL,True,False,1.6761374169998362
+R3 + structured JSON output,bgl_1206,0,NORMAL,True,False,1.603249791000053
+R3 + structured JSON output,bgl_30536,0,NORMAL,True,False,1.8603217499999118
+R3 + structured JSON output,bgl_36419,1,NORMAL,True,False,1.8594512080001095
+R3 + structured JSON output,bgl_29733,0,NORMAL,True,False,2.3543232499998794
+R3 + structured JSON output,bgl_35574,1,NORMAL,True,False,2.919583375000002
+R3 + structured JSON output,bgl_34961,0,NORMAL,True,False,1.455534790999991
+R3 + structured JSON output,bgl_36174,0,NORMAL,True,False,2.751134000000093
+R3 + structured JSON output,bgl_30020,0,NORMAL,True,False,2.8088969169998563
+R3 + structured JSON output,bgl_18743,0,NORMAL,True,False,1.6041482919999908
+R3 + structured JSON output,bgl_35836,0,NORMAL,True,False,2.20192654199991
+R3 + structured JSON output,bgl_35880,0,NORMAL,True,False,1.9607590000000528
+R3 + structured JSON output,bgl_30140,1,NORMAL,True,False,1.9336633339999025
+R3 + structured JSON output,bgl_35506,1,NORMAL,True,False,1.9222270000000208
+R3 + structured JSON output,bgl_24848,0,NORMAL,True,False,2.0133476250000513
+R3 + structured JSON output,bgl_35974,0,NORMAL,True,False,1.8991049169999314
+R3 + structured JSON output,bgl_30798,0,NORMAL,True,False,1.929844500000172
+R4 + few-shot (4 validation exemplars),bgl_30642,0,NORMAL,True,False,4.536636042000055
+R4 + few-shot (4 validation exemplars),bgl_8281,1,NORMAL,True,False,1.6046090840000033
+R4 + few-shot (4 validation exemplars),bgl_45753,0,NORMAL,True,False,4.622151790999851
+R4 + few-shot (4 validation exemplars),bgl_30780,0,NORMAL,True,False,2.1239756249999573
+R4 + few-shot (4 validation exemplars),bgl_41363,0,NORMAL,True,False,2.4137581670001964
+R4 + few-shot (4 validation exemplars),bgl_29872,1,NORMAL,True,False,1.7778827499998897
+R4 + few-shot (4 validation exemplars),bgl_41887,1,NORMAL,True,False,2.1638582919999862
+R4 + few-shot (4 validation exemplars),bgl_45853,0,NORMAL,True,False,4.76237366700002
+R4 + few-shot (4 validation exemplars),bgl_30076,0,NORMAL,True,False,4.423981541999865
+R4 + few-shot (4 validation exemplars),bgl_8048,0,NORMAL,True,False,4.52467737500001
+R4 + few-shot (4 validation exemplars),bgl_23144,0,NORMAL,True,False,4.334604042000137
+R4 + few-shot (4 validation exemplars),bgl_45556,1,NORMAL,True,False,2.3437641659998008
+R4 + few-shot (4 validation exemplars),bgl_20252,0,NORMAL,True,False,5.037180833000093
+R4 + few-shot (4 validation exemplars),bgl_30495,1,NORMAL,True,False,4.681900791000089
+R4 + few-shot (4 validation exemplars),bgl_24180,1,NORMAL,True,False,1.9210437920000913
+R4 + few-shot (4 validation exemplars),bgl_33827,0,NORMAL,True,False,4.685233832999984
+R4 + few-shot (4 validation exemplars),bgl_36717,1,NORMAL,True,False,1.5753114579999874
+R4 + few-shot (4 validation exemplars),bgl_30503,1,NORMAL,True,False,4.500099999999975
+R4 + few-shot (4 validation exemplars),bgl_41582,0,NORMAL,True,False,4.627469249999876
+R4 + few-shot (4 validation exemplars),bgl_35755,1,NORMAL,True,False,4.3416582499999095
+R4 + few-shot (4 validation exemplars),bgl_19968,0,NORMAL,True,False,1.852963207999892
+R4 + few-shot (4 validation exemplars),bgl_30042,0,NORMAL,True,False,1.8799294999998892
+R4 + few-shot (4 validation exemplars),bgl_2213,0,NORMAL,True,False,1.8607878330001313
+R4 + few-shot (4 validation exemplars),bgl_11602,0,NORMAL,True,False,1.8656986670000606
+R4 + few-shot (4 validation exemplars),bgl_30988,1,NORMAL,True,False,4.614409250000108
+R4 + few-shot (4 validation exemplars),bgl_1443,0,NORMAL,True,False,4.321538624999903
+R4 + few-shot (4 validation exemplars),bgl_30785,0,NORMAL,True,False,1.7503219169998374
+R4 + few-shot (4 validation exemplars),bgl_35032,0,NORMAL,True,False,1.991502999999966
+R4 + few-shot (4 validation exemplars),bgl_19852,1,NORMAL,True,False,4.88515629099993
+R4 + few-shot (4 validation exemplars),bgl_41604,0,NORMAL,True,False,4.322877125000105
+R4 + few-shot (4 validation exemplars),bgl_22288,0,NORMAL,True,False,1.9389122920001682
+R4 + few-shot (4 validation exemplars),bgl_32016,0,NORMAL,True,False,4.730052792000151
+R4 + few-shot (4 validation exemplars),bgl_36517,0,NORMAL,True,False,4.383521125000016
+R4 + few-shot (4 validation exemplars),bgl_36356,0,NORMAL,True,False,1.8256861249999474
+R4 + few-shot (4 validation exemplars),bgl_30443,1,NORMAL,True,False,1.9886930829998164
+R4 + few-shot (4 validation exemplars),bgl_41796,0,NORMAL,True,False,2.058931707999818
+R4 + few-shot (4 validation exemplars),bgl_32028,0,NORMAL,True,False,2.0638989169999604
+R4 + few-shot (4 validation exemplars),bgl_41517,0,NORMAL,True,False,2.4837137909999
+R4 + few-shot (4 validation exemplars),bgl_36530,0,NORMAL,True,False,4.591783249999935
+R4 + few-shot (4 validation exemplars),bgl_23802,0,NORMAL,True,False,1.7000864999999976
+R4 + few-shot (4 validation exemplars),bgl_31413,0,NORMAL,True,False,1.6763235830001122
+R4 + few-shot (4 validation exemplars),bgl_42700,1,NORMAL,True,False,1.62398912499998
+R4 + few-shot (4 validation exemplars),bgl_20232,0,NORMAL,True,False,1.9268177500000547
+R4 + few-shot (4 validation exemplars),bgl_36203,0,NORMAL,True,False,4.999517541999921
+R4 + few-shot (4 validation exemplars),bgl_15783,0,NORMAL,True,False,1.8375274170000466
+R4 + few-shot (4 validation exemplars),bgl_1638,0,NORMAL,True,False,5.154941042000019
+R4 + few-shot (4 validation exemplars),bgl_36906,1,NORMAL,True,False,4.440303915999948
+R4 + few-shot (4 validation exemplars),bgl_35507,0,NORMAL,True,False,4.656482124999911
+R4 + few-shot (4 validation exemplars),bgl_30999,1,NORMAL,True,False,1.7606645829998797
+R4 + few-shot (4 validation exemplars),bgl_38845,0,NORMAL,True,False,4.284655250000014
+R4 + few-shot (4 validation exemplars),bgl_1442,0,NORMAL,True,False,4.626454792000004
+R4 + few-shot (4 validation exemplars),bgl_36195,0,NORMAL,True,False,4.357242584000005
+R4 + few-shot (4 validation exemplars),bgl_31010,1,NORMAL,True,False,4.788903167000171
+R4 + few-shot (4 validation exemplars),bgl_40301,0,NORMAL,True,False,4.738943916000153
+R4 + few-shot (4 validation exemplars),bgl_41960,0,NORMAL,True,False,4.853018041000041
+R4 + few-shot (4 validation exemplars),bgl_45762,0,NORMAL,True,False,4.601626041999907
+R4 + few-shot (4 validation exemplars),bgl_45836,1,NORMAL,True,False,2.124008917000083
+R4 + few-shot (4 validation exemplars),bgl_33551,1,NORMAL,True,False,4.565215416000001
+R4 + few-shot (4 validation exemplars),bgl_1200,0,NORMAL,True,False,1.4866036250000434
+R4 + few-shot (4 validation exemplars),bgl_41631,0,NORMAL,True,False,4.370121625000138
+R4 + few-shot (4 validation exemplars),bgl_35579,1,NORMAL,True,False,1.7535140830000273
+R4 + few-shot (4 validation exemplars),bgl_42646,1,NORMAL,True,False,4.6651047919999655
+R4 + few-shot (4 validation exemplars),bgl_27377,0,NORMAL,True,False,4.231614832999867
+R4 + few-shot (4 validation exemplars),bgl_8510,0,NORMAL,True,False,2.436991125000077
+R4 + few-shot (4 validation exemplars),bgl_41368,0,NORMAL,True,False,2.2181540000001405
+R4 + few-shot (4 validation exemplars),bgl_35794,1,NORMAL,True,False,1.7929301659999055
+R4 + few-shot (4 validation exemplars),bgl_45547,1,NORMAL,True,False,2.3949406250001175
+R4 + few-shot (4 validation exemplars),bgl_746,0,NORMAL,True,False,4.63846691599997
+R4 + few-shot (4 validation exemplars),bgl_36632,0,NORMAL,True,False,1.46530266700006
+R4 + few-shot (4 validation exemplars),bgl_33043,1,NORMAL,True,False,4.291094082999962
+R4 + few-shot (4 validation exemplars),bgl_34914,0,NORMAL,True,False,1.7901119579998976
+R4 + few-shot (4 validation exemplars),bgl_30077,1,NORMAL,True,False,2.001081582999859
+R4 + few-shot (4 validation exemplars),bgl_30071,0,NORMAL,True,False,1.8438347080000312
+R4 + few-shot (4 validation exemplars),bgl_36523,0,NORMAL,True,False,1.8768680000000586
+R4 + few-shot (4 validation exemplars),bgl_747,0,NORMAL,True,False,2.1074137080001947
+R4 + few-shot (4 validation exemplars),bgl_45717,0,NORMAL,True,False,1.876752333000013
+R4 + few-shot (4 validation exemplars),bgl_30991,1,NORMAL,True,False,4.646295582999983
+R4 + few-shot (4 validation exemplars),bgl_32041,0,NORMAL,True,False,1.5288202910001019
+R4 + few-shot (4 validation exemplars),bgl_38850,0,NORMAL,True,False,4.301830667000104
+R4 + few-shot (4 validation exemplars),bgl_41935,0,NORMAL,True,False,1.8888827499999934
+R4 + few-shot (4 validation exemplars),bgl_9261,0,NORMAL,True,False,4.754201791000014
+R4 + few-shot (4 validation exemplars),bgl_33606,0,NORMAL,True,False,4.484116915999948
+R4 + few-shot (4 validation exemplars),bgl_43056,0,NORMAL,True,False,4.674086167000041
+R4 + few-shot (4 validation exemplars),bgl_42321,0,NORMAL,True,False,1.595925999999963
+R4 + few-shot (4 validation exemplars),bgl_1206,0,NORMAL,True,False,1.634955624999975
+R4 + few-shot (4 validation exemplars),bgl_30536,0,NORMAL,True,False,1.8178265419999207
+R4 + few-shot (4 validation exemplars),bgl_36419,1,NORMAL,True,False,4.471142624999857
+R4 + few-shot (4 validation exemplars),bgl_29733,0,NORMAL,True,False,2.4010532090001107
+R4 + few-shot (4 validation exemplars),bgl_35574,1,NORMAL,True,False,1.842305000000124
+R4 + few-shot (4 validation exemplars),bgl_34961,0,NORMAL,True,False,4.682036375000052
+R4 + few-shot (4 validation exemplars),bgl_36174,0,NORMAL,True,False,4.153053624999984
+R4 + few-shot (4 validation exemplars),bgl_30020,0,NORMAL,True,False,1.7679974999998649
+R4 + few-shot (4 validation exemplars),bgl_18743,0,NORMAL,True,False,4.604710291999936
+R4 + few-shot (4 validation exemplars),bgl_35836,0,NORMAL,True,False,4.149165999999923
+R4 + few-shot (4 validation exemplars),bgl_35880,0,NORMAL,True,False,1.9639364170000135
+R4 + few-shot (4 validation exemplars),bgl_30140,1,NORMAL,True,False,1.8403552089998811
+R4 + few-shot (4 validation exemplars),bgl_35506,1,NORMAL,True,False,1.8928914999999051
+R4 + few-shot (4 validation exemplars),bgl_24848,0,NORMAL,True,False,1.993875791000164
+R4 + few-shot (4 validation exemplars),bgl_35974,0,NORMAL,True,False,1.823017875000005
+R4 + few-shot (4 validation exemplars),bgl_30798,0,NORMAL,True,False,1.9044615829998293
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30642,0,NORMAL,True,False,2.1760025410001163
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_8281,1,NORMAL,True,False,2.452250250999896
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_45753,0,NORMAL,True,False,4.494307376000052
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30780,0,NORMAL,True,False,3.481151542000134
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_41363,0,NORMAL,True,False,4.522658167000145
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_29872,1,NORMAL,True,False,3.4782830420001574
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_41887,1,NORMAL,True,False,4.638136333000148
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_45853,0,NORMAL,True,False,2.8739262499998404
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30076,0,NORMAL,True,False,2.866823333000184
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_8048,0,SUSPICIOUS,True,False,2.058841333999908
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_23144,0,NORMAL,True,False,3.2977119999998195
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_45556,1,NORMAL,True,False,3.197364332999996
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_20252,0,NORMAL,True,False,3.3463152089998403
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30495,1,SUSPICIOUS,True,False,3.344525708999754
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_24180,1,NORMAL,True,False,4.451636709000013
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_33827,0,NORMAL,True,False,2.8950109590000466
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_36717,1,NORMAL,True,False,3.956050957999878
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30503,1,NORMAL,True,False,3.7304862920000232
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_41582,0,NORMAL,True,False,3.1405992899999546
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_35755,1,NORMAL,True,False,2.924204875999976
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_19968,0,NORMAL,True,False,3.24603445799994
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30042,0,NORMAL,True,False,3.445847707999974
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_2213,0,NORMAL,True,False,3.0661175419998017
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_11602,0,NORMAL,True,False,3.892640791000076
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30988,1,NORMAL,True,False,3.369079207999903
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_1443,0,NORMAL,True,False,4.331233040999905
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30785,0,NORMAL,True,False,3.3058364169999095
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_35032,0,NORMAL,True,False,3.2407434600002034
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_19852,1,NORMAL,True,False,2.724367583000003
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_41604,0,NORMAL,True,False,3.228417708000052
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_22288,0,NORMAL,True,False,3.3665372919999754
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_32016,0,NORMAL,True,False,2.7145274170002267
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_36517,0,NORMAL,True,False,3.2245078339997235
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_36356,0,NORMAL,True,False,3.096607749999748
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30443,1,NORMAL,True,False,2.966942207000102
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_41796,0,NORMAL,True,False,3.160776958000042
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_32028,0,NORMAL,True,False,3.5238695419998294
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_41517,0,NORMAL,True,False,5.806761540999787
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_36530,0,NORMAL,True,False,2.786920332999898
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_23802,0,NORMAL,True,False,2.2519883330000994
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_31413,0,NORMAL,True,False,2.4078125420001015
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_42700,1,NORMAL,True,False,2.9187826259999383
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_20232,0,NORMAL,True,False,3.144327666999743
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_36203,0,NORMAL,True,False,2.7128579160000754
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_15783,0,NORMAL,True,False,2.968905665999955
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_1638,0,NORMAL,True,False,2.819566583000096
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_36906,1,NORMAL,True,False,4.358023167000283
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_35507,0,NORMAL,True,False,2.1502132489999894
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30999,1,NORMAL,True,False,3.0683294580001075
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_38845,0,NORMAL,True,False,3.0406932490000145
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_1442,0,NORMAL,True,False,2.4122532069998215
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_36195,0,NORMAL,True,False,3.0211552079997546
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_31010,1,NORMAL,True,False,3.0186927929996727
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_40301,0,NORMAL,True,False,4.0571180399999776
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_41960,0,NORMAL,True,False,3.135562790999984
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_45762,0,SUSPICIOUS,True,False,3.096314626000094
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_45836,1,NORMAL,True,False,3.5215512910001507
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_33551,1,NORMAL,True,False,2.4546205000001464
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_1200,0,NORMAL,True,False,2.3062767519998033
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_41631,0,NORMAL,True,False,3.477316917000053
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_35579,1,NORMAL,True,False,3.3655123750002076
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_42646,1,NORMAL,True,False,2.475804124999968
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_27377,0,SUSPICIOUS,True,False,3.2446124600000985
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_8510,0,NORMAL,True,False,4.075303792999875
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_41368,0,NORMAL,True,False,3.5502567489998
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_35794,1,NORMAL,True,False,3.472590708000098
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_45547,1,NORMAL,True,False,5.353908082000089
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_746,0,NORMAL,True,False,2.837320501000022
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_36632,0,NORMAL,True,False,2.6388011249998726
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_33043,1,NORMAL,True,False,3.4815717930000574
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_34914,0,NORMAL,True,False,3.3305178759999308
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30077,1,NORMAL,True,False,3.179301248999991
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30071,0,NORMAL,True,False,3.3967742490001456
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_36523,0,NORMAL,True,False,3.189917458999844
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_747,0,NORMAL,True,False,3.1201838750002935
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_45717,0,NORMAL,True,False,2.914410291000422
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30991,1,NORMAL,True,False,3.256570750000037
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_32041,0,NORMAL,True,False,3.402196292000326
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_38850,0,NORMAL,True,False,2.716493917999969
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_41935,0,NORMAL,True,False,3.853687042000047
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_9261,0,SUSPICIOUS,True,False,3.1419229590001123
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_33606,0,NORMAL,True,False,3.185954333999689
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_43056,0,NORMAL,True,False,2.8391277489999993
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_42321,0,NORMAL,True,False,2.8195264170001337
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_1206,0,NORMAL,True,False,1.8193887930001438
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30536,0,NORMAL,True,False,3.1946276669998497
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_36419,1,NORMAL,True,False,3.041201459000149
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_29733,0,SUSPICIOUS,True,False,3.887472624999873
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_35574,1,NORMAL,True,False,3.4096028319997913
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_34961,0,NORMAL,True,False,2.9909521670001595
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_36174,0,NORMAL,True,False,4.1230028760001005
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30020,0,NORMAL,True,False,2.9644495830000324
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_18743,0,NORMAL,True,False,2.562277584000185
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_35836,0,NORMAL,True,False,3.1839231240001027
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_35880,0,NORMAL,True,False,3.3838830840002174
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30140,1,SUSPICIOUS,True,False,4.417026208000152
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_35506,1,SUSPICIOUS,True,False,3.6391865830000825
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_24848,0,NORMAL,True,False,3.4184613759998683
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_35974,0,NORMAL,True,False,2.9180772089998754
+R5 self-consistency k=3 on (R1 + dataset-aware framing),bgl_30798,0,NORMAL,True,False,2.8788804589999017
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30642,0,NORMAL,True,False,3.485517957999946
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_8281,1,SUSPICIOUS,True,False,2.2079220000000532
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_45753,0,SUSPICIOUS,True,False,3.150217540999847
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30780,0,SUSPICIOUS,True,False,3.4486032499999055
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_41363,0,SUSPICIOUS,True,False,4.099835209000048
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_29872,1,NORMAL,True,False,2.7743933330000345
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_41887,1,SUSPICIOUS,True,False,3.0604484590000993
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_45853,0,SUSPICIOUS,True,False,2.1972699580001063
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30076,0,SUSPICIOUS,True,False,3.344576707999977
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_8048,0,SUSPICIOUS,True,False,2.2225713329999053
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_23144,0,SUSPICIOUS,True,False,2.793798082999956
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_45556,1,SUSPICIOUS,True,False,3.7589416670000446
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_20252,0,NORMAL,True,False,2.76603262499998
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30495,1,SUSPICIOUS,True,False,3.135150665999845
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_24180,1,SUSPICIOUS,True,False,2.615484207999998
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_33827,0,SUSPICIOUS,True,False,2.0626705409999886
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_36717,1,SUSPICIOUS,True,False,2.1137718330001007
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30503,1,SUSPICIOUS,True,False,3.1092289170001095
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_41582,0,SUSPICIOUS,True,False,1.9436688339999364
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_35755,1,SUSPICIOUS,True,False,2.9060237910000524
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_19968,0,SUSPICIOUS,True,False,3.0849584170000526
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30042,0,SUSPICIOUS,True,False,2.8214740420000908
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_2213,0,NORMAL,True,False,2.8393518329999097
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_11602,0,SUSPICIOUS,True,False,2.7642179580000175
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30988,1,SUSPICIOUS,True,False,2.027444666999827
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_1443,0,SUSPICIOUS,True,False,3.0086176249999426
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30785,0,SUSPICIOUS,True,False,2.779442999999901
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_35032,0,SUSPICIOUS,True,False,2.6945984589999625
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_19852,1,SUSPICIOUS,True,False,2.6005084159999114
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_41604,0,SUSPICIOUS,True,False,2.632510791999948
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_22288,0,SUSPICIOUS,True,False,2.675292208999963
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_32016,0,NORMAL,True,False,2.204385875000071
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_36517,0,SUSPICIOUS,True,False,2.9067564590000075
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_36356,0,SUSPICIOUS,True,False,3.5555687500000204
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30443,1,SUSPICIOUS,True,False,3.4755732920000355
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_41796,0,NORMAL,True,False,3.277919833000169
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_32028,0,SUSPICIOUS,True,False,3.3472893749999457
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_41517,0,SUSPICIOUS,True,False,4.086617291000039
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_36530,0,SUSPICIOUS,True,False,3.718382625000004
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_23802,0,SUSPICIOUS,True,False,2.500601665999966
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_31413,0,NORMAL,True,False,1.8359723339999618
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_42700,1,SUSPICIOUS,True,False,2.325854665999941
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_20232,0,SUSPICIOUS,True,False,2.520259957999997
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_36203,0,SUSPICIOUS,True,False,2.181030250000049
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_15783,0,SUSPICIOUS,True,False,3.7007227499998407
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_1638,0,SUSPICIOUS,True,False,2.729065042000002
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_36906,1,SUSPICIOUS,True,False,3.252700042000015
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_35507,0,NORMAL,True,False,1.8304400000001806
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30999,1,NORMAL,True,False,2.1801966250000078
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_38845,0,SUSPICIOUS,True,False,2.6237043749999884
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_1442,0,SUSPICIOUS,True,False,2.5264247080001496
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_36195,0,SUSPICIOUS,True,False,2.798473458999979
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_31010,1,SUSPICIOUS,True,False,2.118862750000062
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_40301,0,SUSPICIOUS,True,False,3.669500375000098
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_41960,0,SUSPICIOUS,True,False,2.8565612500001407
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_45762,0,SUSPICIOUS,True,False,2.747609499999726
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_45836,1,NORMAL,True,False,3.2327022499998748
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_33551,1,NORMAL,True,False,2.181379499999821
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_1200,0,NORMAL,True,False,1.940057292000347
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_41631,0,SUSPICIOUS,True,False,2.755607042000065
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_35579,1,SUSPICIOUS,True,False,2.6394292919999316
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_42646,1,SUSPICIOUS,True,False,1.9513685829997485
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_27377,0,NORMAL,True,False,3.151222125000004
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_8510,0,NORMAL,True,False,4.494718375000048
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_41368,0,SUSPICIOUS,True,False,3.4846289160000197
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_35794,1,SUSPICIOUS,True,False,3.250021999999717
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_45547,1,SUSPICIOUS,True,False,3.7235363339996184
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_746,0,NORMAL,True,False,2.392019999999775
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_36632,0,NORMAL,True,False,1.896081458000026
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_33043,1,SUSPICIOUS,True,False,2.6912492500000553
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_34914,0,NORMAL,True,False,2.983600999999908
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30077,1,SUSPICIOUS,True,False,3.001864833000127
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30071,0,SUSPICIOUS,True,False,2.603208334000101
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_36523,0,SUSPICIOUS,True,False,3.077534999999898
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_747,0,SUSPICIOUS,True,False,3.7276804580001226
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_45717,0,SUSPICIOUS,True,False,3.124050082999929
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30991,1,SUSPICIOUS,True,False,1.8902691669995875
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_32041,0,NORMAL,True,False,1.7934547920003752
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_38850,0,SUSPICIOUS,True,False,3.2380125829999997
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_41935,0,NORMAL,True,False,3.1287802090000696
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_9261,0,SUSPICIOUS,True,False,2.861202499999763
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_33606,0,SUSPICIOUS,True,False,2.8528850839998086
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_43056,0,NORMAL,True,False,2.2805076249997
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_42321,0,SUSPICIOUS,True,False,1.966797083000074
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_1206,0,NORMAL,True,False,1.8092481660000885
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30536,0,NORMAL,True,False,2.711327167000036
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_36419,1,SUSPICIOUS,True,False,2.990977208000004
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_29733,0,NORMAL,True,False,4.2102533339998445
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_35574,1,SUSPICIOUS,True,False,2.8924024590000954
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_34961,0,SUSPICIOUS,True,False,2.5169937079999727
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_36174,0,SUSPICIOUS,True,False,3.1290289169996868
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30020,0,SUSPICIOUS,True,False,3.218644833000326
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_18743,0,NORMAL,True,False,1.9275461249999353
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_35836,0,SUSPICIOUS,True,False,2.4984063749998313
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_35880,0,NORMAL,True,False,2.9906861250001384
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30140,1,NORMAL,True,False,2.951749542000016
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_35506,1,NORMAL,True,False,3.0382630839999365
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_24848,0,NORMAL,True,False,3.1381256670001676
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_35974,0,SUSPICIOUS,True,False,2.702529417000278
+R6 llama3.2:3b on (R1 + dataset-aware framing),bgl_30798,0,SUSPICIOUS,True,False,3.276380374999917
