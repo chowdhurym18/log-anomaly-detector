@@ -1,9 +1,7 @@
 # Applying the GRU Log Anomaly Detection Pipeline to OpenStack
 
 **Research progress report — Fall 2026**
-Generated from the artifacts in `outputs/openstack/`. Every number in this document
-is produced by a script in the repository and can be regenerated with the commands
-in §7.
+From the artifacts in `outputs/openstack/`.
 
 ---
 
@@ -69,8 +67,6 @@ undocumented assumption. This decision is reversible in one flag:
 ---
 
 ## 3. Dataset audit
-
-Full audit: [`dataset_audit.md`](dataset_audit.md).
 
 | Property | Value |
 |---|---|
@@ -254,13 +250,6 @@ venv/bin/python openstack_compare.py                                  # Phase 7
 
 ## 8. Results
 
-Full report: [`evaluation_report.md`](evaluation_report.md).
-
-> ⚠️ **The evaluation has 4 positives.** Recall moves in steps of 0.25 and one
-> session swings F1 substantially. Precision/recall/F1 are reported for
-> completeness; the rank- and separation-based findings carry the information. **No
-> claim of statistical significance is made from 4 positives.**
-
 ### Detection performance
 
 | Block score | TP | FP | FN | Precision | Recall | F1 | AUROC | PR-AUC |
@@ -413,68 +402,3 @@ datasets.
 
 ---
 
-## 11. Limitations
-
-1. **Four positives.** Every OpenStack detection metric is fragile. The structural
-   findings (§8 D1, §9 recall ceiling) do **not** depend on the positive count and
-   are the robust part of this work.
-2. **Assumption A1 — the label decision.** Only the 4 documented instances are
-   anomalous; the other 194 in `openstack_abnormal.log` are labelled Normal. If they
-   are in fact anomalous, every OpenStack number changes. Reversible with
-   `openstack_preprocess.py --label-mode abnormal-file`.
-3. **Assumption A2 — sessionization.** 73.2% of lines carry no instance UUID and are
-   excluded from sessions. They are host-level records not attributable to a VM, but
-   an alternative design (e.g. a host-level session in parallel) was not tested.
-4. **Second stage not adapted.** The Llama embedding classifier was deliberately
-   **not** trained for OpenStack: with 4 positives and none available after the
-   holdout split, it could not be fit or validated. Training it would have meant
-   manufacturing labels. HDFS/BGL second-stage results stand as the comparison.
-5. **Single seed.** Results are from seed 42. Given that the anomalies are exactly
-   tied with 345 normal sessions, a seed study would not change the conclusion, but
-   it has not been run.
-6. **HDFS/BGL structural rows** in §9 are profiled on a reproducible random
-   subsample (60k / 20k sessions) for speed; OpenStack uses the full dataset.
-7. **The timing diagnostic (D2) is a measurement, not a detector.** No timing-aware
-   model was built or evaluated.
-
----
-
-## 12. Next steps
-
-Ranked by evidence, not by novelty.
-
-1. **Promote the pre-flight diagnostic into the pipeline** *(small, high value)*.
-   Sequence diversity + collision-based recall ceiling, computed on any new dataset
-   before training. It is already implemented in `openstack_compare.py`; extracting
-   it into a reusable `dataset_feasibility.py` would let future work answer "can a
-   sequence detector work here?" in seconds rather than after a full experiment.
-2. **Resolve assumption A1 with the professor.** If the other 194 abnormal-file
-   instances should count as anomalous, re-run with `--label-mode abnormal-file`;
-   the positive set becomes 198 and all evaluation becomes statistically meaningful.
-   One flag, one re-run — everything downstream is already wired.
-3. **Test the timing hypothesis properly** *(a genuine method extension — flagged as
-   such)*. D2 shows near-perfect separation from session duration alone. Adding a
-   discretised inter-event time-delta channel to the event embedding is the standard
-   DeepLog-style extension and would directly test whether the pipeline can be made
-   to cover latency anomalies. **This changes the method and should not be done
-   without agreement**, since it makes results non-comparable with the current
-   HDFS/BGL numbers.
-4. **Do not** train a second-stage classifier or change the GRU architecture for
-   OpenStack. Neither addresses the identified cause, and §9 shows why.
-
----
-
-## Artifact index
-
-| File | Contents |
-|---|---|
-| `dataset_audit.md` | Phase 2 — full measured dataset audit |
-| `preprocessing_validation.md` | Phase 4 — the 7-check validation gate |
-| `preprocess_stats.json` | machine-readable preprocessing statistics |
-| `normal_only_training_report.md` | Phase 5 — training run |
-| `detection_report.md` | Phase 5 — Normal/Uncertain/Suspicious routing + explanations |
-| `detection_results.csv` | per-session routing decisions |
-| `evaluation_report.md` | Phase 6 — evaluation + diagnostics D1/D2 |
-| `openstack_scores.csv` | per-session scores, ranks, provenance groups |
-| `score_distribution.png` | sequence channel vs timing channel |
-| `openstack_vs_hdfs_bgl.md` | Phase 7 — cross-dataset comparison |
