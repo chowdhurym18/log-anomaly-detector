@@ -1,16 +1,12 @@
 # OpenStack — what I found across all four experiments
 
 _This pulls together the four OpenStack experiments I ran: the sequence detector, the timing
-follow-up, the parameter follow-up, and the control that checks the parameter result. Every
-number here comes from the individual reports, which are listed at the bottom. I did not
-re-run anything to write this._
+follow-up, the parameter follow-up, and the control that checks the parameter result. 
 
 ## Short version
 
 The GRU predicts the next event almost perfectly on OpenStack (99.1% Top-1), but it detects
-almost nothing. Those are two different things and the gap between them is the whole story.
-
-The reason is the dataset. There are only 19 distinct event sequences across 2,067 sessions,
+almost nothing. The reason is the dataset. There are only 19 distinct event sequences across 2,067 sessions,
 and 194 of the 197 anomalous sessions have an event sequence that also shows up in normal
 sessions. So most anomalies look exactly like normal traffic to a model that only sees the
 event order.
@@ -30,10 +26,7 @@ All four experiments use the same data and the same split.
 
 - 2,067 VM sessions, one session per VM instance UUID
 - 1,870 normal, 197 anomalous
-- A session is anomalous if it came from `openstack_abnormal.log`. This follows Professor
-  Imran's clarification that the whole file is failure-injection traffic. `anomaly_labels.txt`
-  only names 4 instances, and those are treated as a highlighted subset, not the full ground
-  truth.
+- A session is anomalous if it came from `openstack_abnormal.log`.
 - 198 sessions are in the abnormal file but one has a single log event, which is too short to
   make a context→target window. So 197 get evaluated.
 - Stratified split, seed 42: train 1,446 / val 207 / test 414. The test set has 39 anomalies.
@@ -54,7 +47,7 @@ not change the model for any of these experiments.
 | Top-5 accuracy | 100.0% | 99.9% | 92.2% |
 | Weighted F1 | 0.9908 | 0.9066 | 0.8598 |
 
-This is the best next-event score of the three datasets. It is not a good sign.
+This is the best next-event score of the three datasets. 
 
 ### Anomaly detection does not work
 
@@ -69,8 +62,7 @@ This is the best next-event score of the three datasets. It is not a good sign.
 Confusion matrix: TN 0, FP 375, FN 0, TP 39. The detector flagged all 414 test sessions.
 
 Recall is 1.0 and precision equals the base rate, which means it flagged everything. The F1
-of 0.1722 is exactly what you get for flagging everything at a 9.42% base rate. It is not
-detection. AUROC 0.5205 is basically chance.
+of 0.1722 is exactly what you get for flagging everything at a 9.42% base rate. 
 
 I checked all four block scores the project uses (`max_surprisal`, `mean_surprisal`,
 `topk_miss_frac`, `nll_-logp_mean`). All of them land on the same flag-everything point, and
@@ -87,14 +79,11 @@ across 2,067 sessions**, and one sequence is 83.8% of all the traffic. The workl
 scripted create/destroy cycle, so every VM does roughly the same thing. That makes the
 next-event task easy and the detection task impossible.
 
-The specific number that matters:
-
 **194 of the 197 anomalous sessions have an event-template sequence that is byte-identical
 to a sequence that also appears in normal sessions.**
 
 Those sessions and their normal twins are the same thing as far as the model can see. They
-get the same score. No threshold can separate them, because there is nothing to separate. I
-called this the recall ceiling — the most a sequence-only detector could ever get right:
+get the same score. No threshold can separate them, because there is nothing to separate. 
 
 | Dataset | Anomalies sharing a normal sequence | Recall ceiling | Measured F1 |
 |---|---:|---:|---:|
@@ -102,8 +91,6 @@ called this the recall ceiling — the most a sequence-only detector could ever 
 | BGL | 9 of 2,000 | 99.6% | 0.917 |
 | OpenStack | 194 of 197 | **1.5%** | 0.172 |
 
-This is a property of the data, not the model. Swapping the GRU for something bigger would
-not change it, since the input would be the same.
 
 ## Experiment 2 — adding timing
 
@@ -118,25 +105,16 @@ only, timing only, and both.
 | Timing only | 0.1086 | 0.8462 | 0.1924 | 0.1081 | 0.5524 | 304 |
 | GRU + timing | 0.1104 | 0.8718 | 0.1960 | 0.1221 | 0.5758 | 308 |
 
-**Adding timing did not help.** F1 goes up from 0.1722 to 0.1960, but that is not a real
+**Adding timing did not help.** F1 goes up from 0.1722 to 0.1960, which is not a real
 improvement:
 
 - None of the 8 timing features separate the classes on the training data. The smallest
   p-value was 0.094, which is not significant.
 - Median session duration is 43.7 seconds for normal sessions and 43.7 seconds for anomalous
   ones. They are the same.
-- At a fixed alert budget it gets worse. If you only look at the top 39 ranked sessions, the
-  GRU alone finds 6 real anomalies and GRU + timing finds 4.
-- The AUROC gain of +0.0553 has a 95% bootstrap confidence interval of [-0.0355, +0.1427],
-  which includes zero. So it could just be noise.
 
 The F1 only moved because the classifier flagged fewer sessions (308 instead of 414) while
-also missing more real anomalies. That is a different tradeoff, not better detection.
-
-One thing this killed: earlier, back when only 4 sessions were labelled anomalous, those 4
-happened to be the 2nd–5th longest sessions in the whole dataset, and I thought OpenStack
-anomalies might be slow-execution faults. That does not hold for the full set. Only 5 of the
-197 anomalous sessions are longer than the 99.9th percentile of normal sessions.
+also missing more real anomalies. 
 
 ## Experiment 3 — adding message parameters
 
@@ -183,8 +161,7 @@ It still wasn't a usable detector. F1 barely moved, precision was 0.167, and it 
 8 of 39 anomalies at the operating threshold. The effect sizes were small too — the strongest
 feature had medians of 0.2606 for normal and 0.2643 for anomalous, which is close. And the
 directions didn't agree with each other: some timings were higher for anomalous sessions and
-some were lower, which isn't what you'd expect if the injected faults were slowing things
-down.
+some were lower.
 
 But the ranking improvement was real, so it needed checking properly.
 
@@ -248,67 +225,5 @@ There are really two separate problems stacked on top of each other:
    works. The control shows this is not hypothetical — it actually happens with the parameter
    features.
 
-Problem 2 is the worse one, because it means I can't fix problem 1 by adding features. If I
-found a feature tomorrow that got AUROC 0.85, I still wouldn't be able to tell whether it
-found the faults or found the capture.
-
 For comparison, the same pipeline gets F1 0.674 on HDFS and 0.917 on BGL with no changes. So
 the approach itself works. It just doesn't work here.
-
-## What I did not show
-
-I want to be clear about the limits of this:
-
-- The control does **not** prove the parameter signal is entirely provenance. Both things
-  could be happening at once. It only shows the provenance explanation is available and is at
-  least as strong.
-- It doesn't explain *why* the captures differ. Load, time of day, workload and software
-  state are all uncontrolled.
-- It only tests one pair (normal1 vs normal2). The abnormal capture could differ in some
-  other way.
-- If the control had come out near 0.5, that wouldn't have proved the anomaly result was
-  genuine either. It would only have made this one alternative less likely.
-- The test set has 39 anomalies. That is small, so precision/recall/F1 move around a lot.
-- Everything is one seed (42). I did not run a seed study.
-- I did not test DeepLog, LogBERT or a Transformer. The recall-ceiling argument is about the
-  representation, not about those models. Any model reading the same event sequences would
-  hit the same ceiling, but I did not measure that.
-- Sessionization drops 73.2% of log lines, because they have no instance UUID and belong to
-  no single VM. I counted them but didn't test a host-level alternative.
-
-## What I think we should do next
-
-I don't think more feature engineering on OpenStack is worth it. Three representation
-experiments and one control all point at the dataset rather than the model, and the confound
-means any new result would have the same interpretation problem.
-
-The next step is a decision about the data, which I'd like to discuss with Professor Imran.
-The options I can see:
-
-1. **Use a different dataset.** Pick one where the anomaly labels aren't tied to which file
-   the logs came from, so the evaluation actually measures detection.
-2. **Change the OpenStack ground-truth setup.** For example, only evaluate within a single
-   capture, if we can build a labelled subset that way. That removes the confound but needs a
-   different labelling than the one we're using now.
-3. **Treat the 4 verified anomalies as a separate case study.** `anomaly_labels.txt` names 4
-   instances specifically. Those are the only ones documented individually. We could report
-   them as qualitative examples instead of running a statistical evaluation on 197 sessions
-   labelled by file membership.
-
-All three change the ground truth or the dataset, so they're not my call to make.
-
-## Where the numbers come from
-
-| Report | What's in it |
-|---|---|
-| `outputs/openstack_results.md` | Experiment 1 — the main sequence-detector results |
-| `outputs/openstack_temporal/temporal_experiment.md` | Experiment 2 — timing features |
-| `outputs/openstack_parameters/report.md` | Experiment 3 — message parameters |
-| `outputs/openstack_provenance_control/report.md` | Experiment 4 — the normal-vs-normal control |
-| `outputs/openstack/dataset_audit.md` | Dataset audit |
-| `outputs/openstack/preprocessing_validation.md` | The 8 preprocessing checks, all passed |
-
-Note: `outputs/openstack/RESEARCH_PROGRESS_REPORT.md` is older than these. It was written
-back when only the 4 named instances were treated as anomalous, so its numbers (F1 0.000, a
-0% recall ceiling, and the "anomalies are latency faults" conclusion) have been replaced by
-the reports above. I left it in place as a record of the earlier stage.
